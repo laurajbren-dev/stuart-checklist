@@ -1,0 +1,1041 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Homeowner Maintenance Checklist — West Highlands, Denver</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap');
+
+  :root {
+    --ink: #1c1917;
+    --ink-light: #44403c;
+    --paper: #faf9f7;
+    --rule: #e7e5e4;
+    --accent: #b45309;
+    --accent-light: #fef3c7;
+    --accent-mid: #fde68a;
+    --caution: #dc2626;
+    --caution-light: #fef2f2;
+    --pro: #1e40af;
+    --pro-light: #eff6ff;
+    --diy: #166534;
+    --diy-light: #f0fdf4;
+    --section-spring: #d1fae5;
+    --section-summer: #fef3c7;
+    --section-fall: #ffedd5;
+    --section-winter: #eff6ff;
+    --section-monthly: #f3f4f6;
+    --section-boiler: #fdf4ff;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  .page-wrap {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 40px 24px 80px;
+  }
+
+  /* HEADER */
+  header {
+    border-bottom: 2px solid var(--ink);
+    padding-bottom: 24px;
+    margin-bottom: 32px;
+  }
+
+  .header-label {
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-light);
+    margin-bottom: 6px;
+    font-weight: 500;
+  }
+
+  h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 32px;
+    line-height: 1.15;
+    color: var(--ink);
+  }
+
+  .subtitle {
+    margin-top: 8px;
+    color: var(--ink-light);
+    font-size: 13px;
+  }
+
+  /* NAV */
+  .toc {
+    background: white;
+    border: 1px solid var(--rule);
+    border-radius: 6px;
+    padding: 20px 24px;
+    margin-bottom: 40px;
+  }
+
+  .toc-title {
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: var(--ink-light);
+    margin-bottom: 12px;
+  }
+
+  .toc-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 4px 16px;
+  }
+
+  .toc a {
+    color: var(--accent);
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 500;
+  }
+  .toc a:hover { text-decoration: underline; }
+
+  /* LEGEND */
+  .legend {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-bottom: 32px;
+    font-size: 12px;
+  }
+
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .badge {
+    display: inline-block;
+    padding: 2px 7px;
+    border-radius: 3px;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+
+  .badge-diy { background: var(--diy-light); color: var(--diy); }
+  .badge-pro { background: var(--pro-light); color: var(--pro); }
+  .badge-critical { background: var(--caution-light); color: var(--caution); }
+
+  /* SECTION */
+  .section {
+    margin-bottom: 40px;
+  }
+
+  .section-header {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    margin-bottom: 16px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  h2 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 22px;
+    color: var(--ink);
+  }
+
+  .section-tag {
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: var(--ink-light);
+  }
+
+  h3 {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--ink-light);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin: 20px 0 10px;
+  }
+
+  /* TASK CARD */
+  .task-list {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .task {
+    background: white;
+    border: 1px solid var(--rule);
+    border-radius: 5px;
+    padding: 12px 14px;
+    display: grid;
+    grid-template-columns: 20px 1fr auto;
+    gap: 10px;
+    align-items: start;
+    transition: box-shadow 0.15s;
+  }
+
+  .task:hover {
+    box-shadow: 0 1px 4px rgba(0,0,0,0.07);
+  }
+
+  .task.critical {
+    border-left: 3px solid var(--caution);
+  }
+
+  .task-check {
+    width: 16px;
+    height: 16px;
+    border: 1.5px solid #d4d4d4;
+    border-radius: 3px;
+    margin-top: 2px;
+    flex-shrink: 0;
+    cursor: pointer;
+    transition: all 0.15s;
+    appearance: none;
+    -webkit-appearance: none;
+    background: white;
+  }
+
+  .task-check:checked {
+    background: var(--ink);
+    border-color: var(--ink);
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 12 12' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M2 6l3 3 5-5' stroke='white' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    background-size: 11px;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+  .task-body {
+    min-width: 0;
+  }
+
+  .task-title {
+    font-weight: 500;
+    font-size: 14px;
+    color: var(--ink);
+  }
+
+  .task-detail {
+    font-size: 12.5px;
+    color: var(--ink-light);
+    margin-top: 3px;
+    line-height: 1.5;
+  }
+
+  .task-note {
+    font-size: 11.5px;
+    color: var(--accent);
+    margin-top: 4px;
+    font-style: italic;
+  }
+
+  .task-meta {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 4px;
+    flex-shrink: 0;
+  }
+
+  /* CALLOUT */
+  .callout {
+    border-radius: 5px;
+    padding: 12px 16px;
+    margin: 12px 0;
+    font-size: 13px;
+    line-height: 1.55;
+  }
+
+  .callout-warn {
+    background: var(--caution-light);
+    border-left: 3px solid var(--caution);
+    color: #7f1d1d;
+  }
+
+  .callout-info {
+    background: var(--accent-light);
+    border-left: 3px solid var(--accent);
+    color: #78350f;
+  }
+
+  .callout-boiler {
+    background: var(--section-boiler);
+    border-left: 3px solid #7e22ce;
+    color: #4a1d96;
+  }
+
+  /* PRINT */
+  @media print {
+    body { font-size: 12px; }
+    .page-wrap { padding: 20px; }
+    .task { break-inside: avoid; }
+    .section { break-inside: avoid; }
+  }
+
+  /* SCROLL NAV */
+  .sticky-nav {
+    position: sticky;
+    top: 0;
+    background: rgba(250,249,247,0.95);
+    backdrop-filter: blur(4px);
+    z-index: 10;
+    border-bottom: 1px solid var(--rule);
+    padding: 10px 0;
+    margin-bottom: 24px;
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+    font-size: 11.5px;
+  }
+
+  .nav-btn {
+    background: white;
+    border: 1px solid var(--rule);
+    border-radius: 20px;
+    padding: 4px 12px;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 11.5px;
+    color: var(--ink-light);
+    transition: all 0.15s;
+  }
+
+  .nav-btn:hover {
+    background: var(--ink);
+    color: white;
+    border-color: var(--ink);
+  }
+
+  .divider {
+    border: none;
+    border-top: 1px solid var(--rule);
+    margin: 32px 0;
+  }
+
+  .section-stripe {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-right: 4px;
+  }
+</style>
+</head>
+<body>
+<div class="page-wrap">
+
+  <header>
+    <div class="header-label">West Highlands, Denver · 80212 · Pre-1978 Bi-level</div>
+    <h1>Homeowner Maintenance<br>Checklist</h1>
+    <p class="subtitle">Navien NFC-250/200H Combi-Boiler + General Home Systems · Updated 2026</p>
+  </header>
+
+  <div class="sticky-nav">
+    <span style="font-weight:600; color:var(--ink-light); font-size:11px; padding: 4px 6px;">Jump to:</span>
+    <button class="nav-btn" onclick="document.getElementById('boiler').scrollIntoView({behavior:'smooth'})">🔥 Boiler</button>
+    <button class="nav-btn" onclick="document.getElementById('monthly').scrollIntoView({behavior:'smooth'})">Monthly</button>
+    <button class="nav-btn" onclick="document.getElementById('spring').scrollIntoView({behavior:'smooth'})">Spring</button>
+    <button class="nav-btn" onclick="document.getElementById('summer').scrollIntoView({behavior:'smooth'})">Summer</button>
+    <button class="nav-btn" onclick="document.getElementById('fall').scrollIntoView({behavior:'smooth'})">Fall</button>
+    <button class="nav-btn" onclick="document.getElementById('winter').scrollIntoView({behavior:'smooth'})">Winter</button>
+    <button class="nav-btn" onclick="document.getElementById('asneeded').scrollIntoView({behavior:'smooth'})">As-Needed</button>
+    <button class="nav-btn" onclick="document.getElementById('findpro').scrollIntoView({behavior:'smooth'})">Finding a Tech</button>
+  </div>
+
+  <!-- LEGEND -->
+  <div class="legend">
+    <span style="font-size:12px; font-weight:600; color:var(--ink-light);">Key:</span>
+    <div class="legend-item"><span class="badge badge-diy">DIY</span> You can do this yourself</div>
+    <div class="legend-item"><span class="badge badge-pro">Hire Out</span> Requires a licensed professional</div>
+    <div class="legend-item"><span class="badge badge-critical">Critical</span> Safety or warranty impact — do not skip or defer</div>
+  </div>
+
+  <div class="callout callout-warn">
+    <strong>Pre-1978 home notice:</strong> Your property predates 1978. Before any drilling, sanding, cutting, or demo work — including renovation work — assume lead paint and possibly asbestos are present until tested. Disturbing these materials without proper precautions is a health hazard and a legal issue. Always disclose this to contractors and verify they follow EPA RRP (Renovate, Repair, Paint) rules. This matters most during your ongoing Phase 1 renovation.
+  </div>
+
+  <hr class="divider">
+
+  <!-- =================== BOILER SECTION =================== -->
+  <div class="section" id="boiler">
+    <div class="section-header">
+      <h2>Navien NFC-250/200H Combi-Boiler</h2>
+      <span class="section-tag">Space Heat + Hot Water</span>
+    </div>
+
+    <div class="callout callout-boiler">
+      Your boiler does two jobs at once: heats the house via hot water flowing through baseboard radiators, and supplies all domestic hot water (showers, sinks, etc.). It's a complex system. Staying on its maintenance schedule is the single most important thing you can do to avoid expensive repairs or a no-heat/no-hot-water emergency in January. Register your warranty at navieninc.com if not already done — Navien will not ship warranty parts without registration.
+    </div>
+
+    <h3>🔴 Daily During Heating Season — Owner Check</h3>
+    <div class="task-list">
+      <div class="task critical">
+        <input type="checkbox" class="task-check">
+        <div class="task-body">
+          <div class="task-title">Glance at the pressure/temperature gauge</div>
+          <div class="task-detail">The gauge is on the front of the unit. Normal operating pressure is 12–18 PSI when cold, and may read higher when hot. You don't need to log a number daily — you just need to notice if it's dropped significantly or is reading zero, which indicates a leak somewhere in the system. If you don't know what your gauge normally reads, check it now and remember it.</div>
+          <div class="task-note">If pressure keeps dropping over days/weeks without explanation: call a pro. Do not keep refilling it yourself without finding out why.</div>
+        </div>
+        <div class="task-meta"><span class="badge badge-diy">DIY</span><span class="badge badge-critical">Critical</span></div>
+      </div>
+
+      <div class="task critical">
+        <input type="checkbox" class="task-check">
+        <div class="task-body">
+          <div class="task-title">Check that the boiler area is clear</div>
+          <div class="task-detail">The area around and in front of the boiler must be free of combustible materials, clutter, and anything that might block the air intake. This is a safety requirement, not just tidiness. Cats are also a factor here — make sure nothing is stored against the unit.</div>
+        </div>
+        <div class="task-meta"><span class="badge badge-diy">DIY</span><span class="badge badge-critical">Critical</span></div>
+      </div>
+
+      <div class="task">
+        <input type="checkbox" class="task-check">
+        <div class="task-body">
+          <div class="task-title">Note any error codes on the front panel display</div>
+          <div class="task-detail">If a code appears, write it down and photograph it before resetting. You can reset the boiler by pressing the Back button on the front panel. If the same code keeps reappearing, that's a signal to call a technician — don't keep resetting and ignoring it. Common codes: E001 (overtemp — auto reset), E003 (ignition failure — manual reset).</div>
+        </div>
+        <div class="task-meta"><span class="badge badge-diy">DIY</span></div>
+      </div>
+    </div>
+
+    <h3>🟠 Monthly During Heating Season</h3>
+    <div class="task-list">
+      <div class="task critical">
+        <input type="checkbox" class="task-check">
+        <div class="task-body">
+          <div class="task-title">Visually inspect the condensate trap and drain line</div>
+          <div class="task-detail">The condensate trap is the small cup at the very bottom of the unit. Look for signs of blockage, cracking, or water backing up. Also look at wherever the drain line exits — it should be draining freely and not smelling particularly foul. You don't need to open it monthly, just look for obvious problems.</div>
+          <div class="task-note">If the trap is clogged, the boiler will throw an error and shut down. This is one of the most common Navien failure modes.</div>
+        </div>
+        <div class="task-meta"><span class="badge badge-diy">DIY</span><span class="badge badge-critical">Critical</span></div>
+      </div>
+
+      <div class="task">
+        <input type="checkbox" class="task-check">
+        <div class="task-body">
+          <div class="task-title">Visually inspect vent pipe (flue) for blockage or leakage</div>
+          <div class="task-detail">The vent pipes carry combustion gases out of the house. They're usually white PVC pipes that go through a wall. Look for: cracks, disconnected joints, white residue (condensate leaking), or anything blocking the exterior termination point (like a bird nest or snow). This is a carbon monoxide risk if compromised.</div>
+        </div>
+        <div class="task-meta"><span class="badge badge-diy">DIY</span></div>
+      </div>
+
+      <div class="task">
+        <input type="checkbox" class="task-check">
+        <div class="task-body">
+          <div class="task-title">Listen for unusual sounds while boiler is running</div>
+          <div class="task-detail">The boiler should hum quietly. Banging, kettling (a rumbling/boiling sound), gurgling, or loud clicking are all worth noting. One-time sounds can be air in the pipes or normal startup. Persistent sounds need a tech. Write down when you first noticed something and what it sounds like.</div>
+        </div>
+        <div class="task-meta"><span class="badge badge-diy">DIY</span></div>
+      </div>
+    </div>
+
+    <h3>🟡 Every 3–4 Months (or When Error Code 110 Appears)</h3>
+    <div class="task-list">
+      <div class="task">
+        <input type="checkbox" class="task-check">
+        <div class="task-body">
+          <div class="task-title">Clean the air intake filter</div>
+          <div class="task-detail">This is located at the top left of the boiler inside the cabinet. Remove the screw securing it, pull out the filter, dust it off, rinse with cold clean water, and let it dry completely before reinstalling. Do NOT put it back wet — it sits near the blower. Use a soft brush (old toothbrush is fine). If it ever looks heavily clogged between cleanings, clean it sooner. Denver's dry air can carry more particulate than humid climates. With cats in the home, check more frequently — cat hair can accelerate clogging. If Error Code 110 appears, the filter is blocked — clean it before resetting.</div>
+        </div>
+        <div class="task-meta"><span class="badge badge-diy">DIY</span></div>
+      </div>
+    </div>
+
+    <h3>🟡 Every 6 Months</h3>
+    <div class="task-list">
+      <div class="task critical">
+        <input type="checkbox" class="task-check">
+        <div class="task-body">
+          <div class="task-title">Inspect all gas and water piping connections for leaks</div>
+          <div class="task-detail">Look for water stains, drips, or any corrosion around pipe joints and connections. For gas: trust your nose — a sulfur/rotten egg smell near the unit means leave immediately and call Xcel Energy's 24/7 emergency line (1-800-895-2999), then call your tech. Don't flip switches or use your phone inside.</div>
+        </div>
+        <div class="task-meta"><span class="badge badge-diy">DIY</span><span class="badge badge-critical">Critical</span></div>
+      </div>
+
+      <div class="task critical">
+        <input type="checkbox" class="task-check">
+        <div class="task-body">
+          <div class="task-title">Test the pressure relief valve (PRV)</div>
+          <div class="task-detail">The PRV is a safety device that prevents the system from over-pressurizing. Testing involves briefly lifting the lever to verify it opens and releases — water should flow out briefly and stop when you release. If it doesn't release, or won't reseat and keeps dripping: call a pro immediately. This is a hire-out repair, not a DIY fix. If you've never done this before, ask your annual technician to show you.</div>
+        </div>
+        <div class="task-meta"><span class="badge badge-pro">Hire Out</span><span class="badge badge-critical">Critical</span></div>
+      </div>
+
+      <div class="task">
+        <input type="checkbox" class="task-check">
+        <div class="task-body">
+          <div class="task-title">Clean the inlet water screens</div>
+          <div class="task-detail">There are small mesh filter screens on the DHW (domestic hot water) cold-water inlet, and between the heating supply and return connections. These catch sediment and debris. Turn off water supply to the unit, unscrew the screen housing, rinse the screen under clean running water, and reinstall. Frequency may need to increase if you notice reduced hot water pressure or flow. At Denver's moderate water hardness (~125 ppm), annually is usually sufficient, but checking at 6 months is wise in the first year.</div>
+        </div>
+        <div class="task-meta"><span class="badge badge-diy">DIY</span></div>
+      </div>
+    </div>
+
+    <h3>🔴 Annually — Professional Service (Schedule Every Fall, Before Heating Season)</h3>
+    <div class="task-list">
+      <div class="task critical">
+        <input type="checkbox" class="task-check">
+        <div class="task-body">
+          <div class="task-title">Annual professional tune-up by a Navien Service Specialist (NSS)</div>
+          <div class="task-detail">A full annual service should include: combustion analysis (checking gas pressure and burn efficiency), cleaning and inspecting the burner, inspecting ignition and flame detector electrodes, checking the heat exchanger, flushing the condensate system, checking and cleaning the air and water filters, verifying all safety controls and checking for error codes, inspecting venting for leaks or blockage, and verifying system water pressure and expansion tank function. Budget $150–$300. Schedule in September before heating season starts — wait until it's cold and you have no heat before booking, and you'll pay emergency rates and wait longer.</div>
+          <div class="task-note">For warranty service: always contact Navien Technical Support first (1-800-519-8794) before any repair work. Have your serial number ready: 6681E2561349021.</div>
+        </div>
+        <div class="task-meta"><span class="badge badge-pro">Hire Out</span><span class="badge badge-critical">Critical</span></div>
+      </div>
+
+      <div class="task critical">
+        <input type="checkbox" class="task-check">
+        <div class="task-body">
+          <div class="task-title">Clean condensate trap — full cleaning (not just visual check)</div>
+          <div class="task-detail">Remove the metal wire clip at the bottom of the cabinet, pull the cup out of the trap, remove any sediment, rinse, and refill with fresh water before reinstalling. Make sure the o-ring is correctly seated when you put it back — that o-ring is what keeps the trap sealed. This can be done by you or your annual tech. Annual full cleaning is the minimum; if you're in heating season and the unit throws a condensate-related error, clean it immediately.</div>
+        </div>
+        <div class="task-meta"><span class="badge badge-diy">DIY</span><span class="badge badge-critical">Critical</span></div>
+      </div>
+
+      <div class="task">
+        <input type="checkbox" class="task-check">
+        <div class="task-body">
+          <div class="task-title">Heat exchanger flush/descale (DHW side)</div>
+          <div class="task-detail">This uses a pump to circulate a vinegar-based or commercial descaling solution through the heat exchanger to dissolve mineral scale. At Denver's ~125 ppm water hardness, annually is appropriate. If scale builds up it reduces efficiency (higher gas bills) and can damage the heat exchanger over time — and that's the most expensive repair on this unit. Ask your annual tech to include this or quote it separately. Cost is typically bundled into an annual service or $100–$200 standalone.</div>
+        </div>
+        <div class="task-meta"><span class="badge badge-pro">Hire Out</span></div>
+      </div>
+    </div>
+
+    <h3>🔍 Watch For These Warning Signs (Act Promptly)</h3>
+    <div class="callout callout-info">
+      <strong>Call your tech if you notice:</strong> Uneven heat — one zone hot, another cold. Banging or kettling sounds when heating is running. Pressure dropping repeatedly. The relief valve dripping. Hot water cutting out mid-shower or fluctuating temperature. Any error code that keeps coming back after you reset. Water stains or drips near the unit or piping.<br><br>
+      <strong>Leave the house and call Xcel Energy immediately (1-800-895-2999) if:</strong> You smell rotten eggs or sulfur near the boiler or anywhere in the house. This is a gas leak. Do not use light switches or your phone until you're outside.
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- =================== MONTHLY =================== -->
+  <div class="section" id="monthly">
+    <div class="section-header">
+      <h2>Monthly — Year Round</h2>
+      <span class="section-tag">Quick checks, ~15 min</span>
+    </div>
+
+    <div class="task-list">
+      <div class="task critical">
+        <input type="checkbox" class="task-check">
+        <div class="task-body">
+          <div class="task-title">Test smoke detectors and carbon monoxide (CO) detectors</div>
+          <div class="task-detail">Press and hold the test button until you hear a loud beep. Each detector should be tested. CO detectors are especially important in a home with a gas boiler. If a detector doesn't sound when tested, replace the battery immediately. If it still doesn't work, replace the unit. CO is colorless and odorless — a working detector is your only warning. You need at minimum one CO detector per floor, and one near the boiler. Replace batteries annually (do it when you set clocks back in November — easy to remember). Replace the entire unit every 5–7 years (expiration date is usually on the back).</div>
+        </div>
+        <div class="task-meta"><span class="badge badge-diy">DIY</span><span class="badge badge-critical">Critical</span></div>
+      </div>
+
+      <div class="task">
+        <input type="checkbox" class="task-check">
+        <div class="task-body">
+          <div class="task-title">Check under sinks and around toilets for slow leaks</div>
+          <div class="task-detail">Open the cabinet under every sink and look at the supply lines (the braided metal hoses connecting the wall shutoff to the faucet) and the drain connections. Look for moisture, water stains, mineral deposits, or any dripping. Also look at the base of each toilet — any water or discoloration around the base can indicate a failing wax ring seal. Catching a small leak early can prevent major water damage and mold. With your renovation ongoing, also check any newly plumbed connections.</div>
+        </div>
+        <div class="task-meta"><span class="badge badge-diy">DIY</span></div>
+      </div>
+
+      <div class="task">
+        <input type="checkbox" class="task-check">
+        <div class="task-body">
+          <div class="task-title">Look for any new cracks in walls, ceilings, or floors</div>
+          <div class="task-detail">Small hairline cracks in drywall or plaster are often just settling and aren't urgent. But horizontal cracks in the foundation, or cracks that are growing wider over time, need professional evaluation. In a pre-1978 bi-level, also keep an eye on the connection point between the upper and lower levels. Denver's dramatic temperature swings cause more movement than many climates.</div>
+        </div>
+        <div class="task-meta"><span class="badge badge-diy">DIY</span></div>
+      </div>
+
+      <div class="task">
+        <input type="checkbox" class="task-check">
+        <div class="task-body">
+          <div class="task-title">Check that exterior doors and windows open, close, and lock properly</div>
+          <div class="task-detail">Sticking doors or windows that were fine before can indicate foundation movement, moisture swelling, or frame settling. Also make sure every window and door can be fully locked — important for security and also for insurance purposes.</div>
+        </div>
+        <div class="task-meta"><span class="badge badge-diy">DIY</span></div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- =================== SPRING =================== -->
+  <div class="section" id="spring">
+    <div class="section-header">
+      <h2>Spring</h2>
+      <span class="section-tag">March–May · Post-Winter Recovery</span>
+    </div>
+
+    <div class="task-list">
+      <div class="task critical">
+        <input type="checkbox" class="task-check">
+        <div class="task-body">
+          <div class="task-title">Walk the full perimeter of the foundation</div>
+          <div class="task-detail">Look for new cracks, settling, or places where the ground has pulled away from the foundation (called "gapping"). Denver's freeze-thaw cycles are hard on foundations. Also look for water staining on the concrete which indicates where water is pooling against the house. Horizontal cracks or step cracks in block foundations need a structural engineer, not just a handyman.</div>
+        </div>
+        <div class="task-meta"><span class="badge badge-diy">DIY</span></div>
+      </div>
+
+      <div class="task critical">
+        <input type="checkbox" class="task-check">
+        <div class="task-body">
+          <div class="task-title">Roof inspection</div>
+          <div class="task-detail">You don't need to climb on the roof yourself — binoculars from the street or hiring a roofer for an inspection is safer and more thorough. Look for: missing or curling shingles, lifted flashing (the metal strips around the chimney, vents, or skylights), debris accumulation in valleys, or signs of sagging. A small roof problem becomes a massive water damage problem fast. Budget $100–$300 for a professional inspection if you want eyes up there.</div>
+          <div class="task-note">Your inspection report flagged specific roof items — confirm those were addressed and check whether those areas look clear post-winter.</div>
+        </div>
+        <div class="task-meta"><span class="badge badge-diy">DIY</span></div>
+      </div>
+
+      <div class="task">
+        <input type="checkbox" class="task-check">
+        <div class="task-body">
+          <div class="task-title">Clear and inspect gutters and downspouts</div>
+          <div class="task-detail">Remove all leaves, debris, and anything blocking the gutters. Make sure downspouts discharge water at least 6 feet away from the foundation (you can buy downspout extenders cheaply). Water pooling against the foundation is a primary cause of basement moisture and long-term structural damage. With Denver's spring snowmelt and rain, this matters.</div>
+        </div>
+        <div class="task-meta"><span class="badge badge-diy">DIY</span></div>
+      </div>
+
+      <div class="task">
+        <input type="checkbox" class="task-check">
+        <div class="task-body">
+          <div class="task-title">Inspect exterior caulking around windows and doors</div>
+          <div class="task-detail">Caulking dries out, cracks, and pulls away — especially in Denver's low humidity. Look for gaps or crumbling caulk around window frames, door frames, and anywhere pipes or cables enter the house. Re-caulk with exterior-grade silicone or paintable latex caulk. This is one of the cheapest and highest-impact DIY maintenance tasks. Air infiltration around windows is a major source of energy loss.</div>
+        </div>
+        <div class="task-meta"><span class="badge badge-diy">DIY</span></div>
+      </div>
+
+      <div class="task">
+        <input type="checkbox" class="task-check">
+        <div class="task-body">
+          <div class="task-title">Check window screens and repair or replace damaged ones</div>
+          <div class="task-detail">This is relevant now since you're planning window replacements. As new windows go in, inspect screens for tears and ensure frames fit properly. With cats, screen durability matters — aluminum screens stand up better than fiberglass to cats pushing on them.</div>
+        </div>
+        <div class="task-meta"><span class="badge badge-diy">DIY</span></div>
+      </div>
+
+      <div class="task">
+        <input type="checkbox" class="task-check">
+        <div class="task-body">
+          <div class="task-title">Test GFCI outlets (Ground Fault Circuit Interrupter)</div>
+          <div class="task-detail">GFCI outlets are the ones with "Test" and "Reset" buttons, typically in bathrooms, kitchens, and near sinks. Press the Test button — the outlet should go dead. Press Reset to restore. If it doesn't trip or won't reset, the outlet may be faulty and needs an electrician. In a pre-1978 home, also note any two-prong (ungrounded) outlets — these are a safety limitation worth upgrading eventually.</div>
+        </div>
+        <div class="task-meta"><span class="badge badge-diy">DIY</span></div>
+      </div>
+
+      <div class="task">
+        <input type="checkbox" class="task-check">
+        <div class="task-body">
+          <div class="task-title">Mini-split filter cleaning (once planned mini-splits are installed)</div>
+          <div class="task-detail">Mini-split indoor units have washable filters that need cleaning every 4–6 weeks during heavy use. This is an easy DIY task: slide the filter out, rinse under water, let dry, reinstall. Neglecting it reduces efficiency and can cause the unit to ice up or shut down. Add it to your monthly routine during summer AC season.</div>
+        </div>
+        <div class="task-meta"><span class="badge badge-diy">DIY</span></div>
+      </div>
+
+      <div class="task">
+        <input type="checkbox" class="task-check">
+        <div class="task-body">
+          <div class="task-title">Schedule mini-split professional service (once installed)</div>
+          <div class="task-detail">Mini-splits need annual professional service: checking refrigerant, cleaning the coil and drain pan, verifying electrical connections, and cleaning the outdoor unit. Do this in spring before the first AC use. Budget $100–$200 per unit.</div>
+        </div>
+        <div class="task-meta"><span class="badge badge-pro">Hire Out</span></div>
+      </div>
+
+      <div class="task">
+        <input type="checkbox" class="task-check">
+        <div class="task-body">
+          <div class="task-title">Check weatherstripping on all exterior doors</div>
+          <div class="task-detail">Close a door on a piece of paper — if you can pull the paper out easily, the seal is inadequate. Weatherstripping compresses over time and needs replacing every few years. This is a cheap DIY fix that makes a real difference in comfort and energy costs.</div>
+        </div>
+        <div class="task-meta"><span class="badge badge-diy">DIY</span></div>
+      </div>
+
+      <div class="task">
+        <input type="checkbox" class="task-check">
+        <div class="task-body">
+          <div class="task-title">Check the exterior stairwell (the enclosed back stairwell) for water intrusion</div>
+          <div class="task-detail">The enclosed back stairwell connecting upper and lower levels is worth checking at snowmelt. Look at the door threshold, any drain at the base, and the walls for moisture or staining. Enclosed stairwells in split-levels can trap water.</div>
+        </div>
+        <div class="task-meta"><span class="badge badge-diy">DIY</span></div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- =================== SUMMER =================== -->
+  <div class="section" id="summer">
+    <div class="section-header">
+      <h2>Summer</h2>
+      <span class="section-tag">June–August · Exterior Work Season</span>
+    </div>
+
+    <div class="task-list">
+      <div class="task">
+        <input type="checkbox" class="task-check">
+        <div class="task-body">
+          <div class="task-title">Inspect exterior wood surfaces for paint failure or rot</div>
+          <div class="task-detail">Denver's sun is intense at altitude and UV breaks down exterior finishes faster than most climates. Check any wood trim, fascia boards, soffits, and fence boards for peeling, cracking, or soft/punky wood (press on it — if it gives easily, it's rotting). Catch rot early and you're replacing a board; catch it late and you're replacing structure. Summer is the best time to repaint or re-stain exterior wood surfaces before the freeze-thaw cycle hits again.</div>
+        </div>
+        <div class="task-meta"><span class="badge badge-diy">DIY</span></div>
+      </div>
+
+      <div class="task">
+        <input type="checkbox" class="task-check">
+        <div class="task-body">
+          <div class="task-title">Check and clean dryer vent (if applicable)</div>
+          <div class="task-detail">If you have a clothes dryer, the vent duct that exhausts to the outside can accumulate lint — which is a fire hazard. Disconnect the duct from the back of the dryer, look inside with a flashlight, and remove any lint buildup. Also check the exterior vent hood to make sure the flap opens when the dryer runs and isn't blocked. If the duct is long or has bends, consider a professional dryer vent cleaning service ($80–$150) every 2–3 years.</div>
+        </div>
+        <div class="task-meta"><span class="badge badge-diy">DIY</span></div>
+      </div>
+
+      <div class="task">
+        <input type="checkbox" class="task-check">
+        <div class="task-body">
+          <div class="task-title">Check grading (ground slope) around the house</div>
+          <div class="task-detail">The ground immediately around the foundation should slope away from the house — about 6 inches of drop over the first 10 feet is ideal. If soil has settled and is now sloping toward the house, you'll get water against the foundation. This is a common cause of basement/crawl space moisture. Fix it by adding topsoil and re-grading, or building up with soil and tamping. Not a hard job, but easy to overlook.</div>
+        </div>
+        <div class="task-meta"><span class="badge badge-diy">DIY</span></div>
+      </div>
+
+      <div class="task">
+        <input type="checkbox" class="task-check">
+        <div class="task-body">
+          <div class="task-title">Look for pest activity — wasps, carpenter ants, termites</div>
+          <div class="task-detail">Summer is when pest activity peaks. Look for sawdust-like frass near wood (carpenter ants or termites), wasp nests under eaves or in wall voids, and ant trails entering through foundation cracks. An existing home inspection report will have noted prior pest issues — follow up on those. Pre-1978 homes often have more entry points.</div>
+        </div>
+        <div class="task-meta"><span class="badge badge-diy">DIY</span></div>
+      </div>
+
+      <div class="task">
+        <input type="checkbox" class="task-check">
+        <div class="task-body">
+          <div class="task-title">Verify boiler is operational in DHW-only mode</div>
+          <div class="task-detail">During summer when you're not using the space heating function, the boiler still runs for hot water. Verify it's operating normally (hot water is available, no error codes). The boiler has a built-in freeze protection function but it requires power — do not cut power to the unit for the summer. Make sure someone is monitoring the unit if you travel for extended periods.</div>
+        </div>
+        <div class="task-meta"><span class="badge badge-diy">DIY</span></div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- =================== FALL =================== -->
+  <div class="section" id="fall">
+    <div class="section-header">
+      <h2>Fall</h2>
+      <span class="section-tag">September–November · Pre-Winter Prep</span>
+    </div>
+
+    <div class="callout callout-info">
+      Fall is your most important maintenance season. Denver winters are cold, fast, and unforgiving. Everything on this list that's about heating needs to happen by early October at the latest.
+    </div>
+
+    <div class="task-list">
+      <div class="task critical">
+        <input type="checkbox" class="task-check">
+        <div class="task-body">
+          <div class="task-title">Schedule annual boiler service — do this in September</div>
+          <div class="task-detail">See the Boiler section above for the full list of what this should cover. Book it before you need the heat — don't wait until the first cold snap or you'll be competing with everyone else who also waited.</div>
+        </div>
+        <div class="task-meta"><span class="badge badge-pro">Hire Out</span><span class="badge badge-critical">Critical</span></div>
+      </div>
+
+      <div class="task critical">
+        <input type="checkbox" class="task-check">
+        <div class="task-body">
+          <div class="task-title">Test the heating system before you need it</div>
+          <div class="task-detail">Turn on the heat in early October, before it's actually cold. Walk to every room and verify that the baseboard radiators are getting warm. If a zone isn't heating, it's better to find out now than in January. Common causes: air lock in the zone, stuck zone valve, thermostat issue, or a tripped breaker.</div>
+        </div>
+        <div class="task-meta"><span class="badge badge-diy">DIY</span></div>
+      </div>
+
+      <div class="task">
+        <input type="checkbox" class="task-check">
+        <div class="task-body">
+          <div class="task-title">Clear gutters and downspouts — again (leaves fall in fall)</div>
+          <div class="task-detail">Do a second gutter clean in late October/early November after the leaves drop. Clogged gutters in winter can cause ice dams — a condition where water backs up under shingles and causes interior water damage. Ice dams are expensive. Clear gutters are cheap.</div>
+        </div>
+        <div class="task-meta"><span class="badge badge-diy">DIY</span></div>
+      </div>
+
+      <div class="task">
+        <input type="checkbox" class="task-check">
+        <div class="task-body">
+          <div class="task-title">Disconnect and drain outdoor hoses</div>
+          <div class="task-detail">Before the first freeze, disconnect all garden hoses from outdoor spigots (hose bibs). Even if the spigot is a "frost-free" type, a connected hose can still cause it to freeze and burst the pipe inside the wall. Drain and store hoses. If you have any irrigation system, it also needs to be winterized — blown out with compressed air by a professional ($75–$150).</div>
+        </div>
+        <div class="task-meta"><span class="badge badge-diy">DIY</span></div>
+      </div>
+
+      <div class="task">
+        <input type="checkbox" class="task-check">
+        <div class="task-body">
+          <div class="task-title">Replace smoke and CO detector batteries</div>
+          <div class="task-detail">The standard advice is to change batteries when the clocks change. Since Colorado no longer changes its clocks (effective 2023), just pick a date in early November and do it then. Write the date on the battery with a marker. Also confirm all detectors are still within their service life (expiration on the back).</div>
+        </div>
+        <div class="task-meta"><span class="badge badge-diy">DIY</span></div>
+      </div>
+
+      <div class="task">
+        <input type="checkbox" class="task-check">
+        <div class="task-body">
+          <div class="task-title">Check all pipe insulation in unheated spaces</div>
+          <div class="task-detail">Any pipes running through unheated areas (crawl spaces, exposed exterior walls, the lower level mechanical room if not fully heated) should be insulated with foam pipe insulation. Look for any that's falling off or deteriorating. Frozen pipes can burst and cause catastrophic water damage. Insulation is a $10 fix. Burst pipes can be $10,000+.</div>
+        </div>
+        <div class="task-meta"><span class="badge badge-diy">DIY</span></div>
+      </div>
+
+      <div class="task">
+        <input type="checkbox" class="task-check">
+        <div class="task-body">
+          <div class="task-title">Stock emergency supplies</div>
+          <div class="task-detail">Before winter: know where your main water shutoff is and make sure you can operate it. Know where the main gas shutoff is. Have a working flashlight, spare batteries, and a backup heat source (electric space heater) in case the boiler goes down. Denver can have multi-day cold snaps below 0°F. If the boiler fails at midnight on a Saturday, you'll be glad you have a space heater while you wait for a tech.</div>
+        </div>
+        <div class="task-meta"><span class="badge badge-diy">DIY</span></div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- =================== WINTER =================== -->
+  <div class="section" id="winter">
+    <div class="section-header">
+      <h2>Winter</h2>
+      <span class="section-tag">December–February · Monitor and Respond</span>
+    </div>
+
+    <div class="task-list">
+      <div class="task critical">
+        <input type="checkbox" class="task-check">
+        <div class="task-body">
+          <div class="task-title">Keep the house above 55°F at all times — even when away</div>
+          <div class="task-detail">If you leave for the holidays or travel, do not turn the heat off or set it below 55°F. The boiler has internal freeze protection, but the pipes in the walls and floors do not. A burst pipe from freezing can cause tens of thousands of dollars in damage. If you'll be away more than a few days, ask someone to check on the house. Smart thermostats or the NaviLink Wi-Fi controller (sold separately for your boiler) can help you monitor remotely.</div>
+        </div>
+        <div class="task-meta"><span class="badge badge-diy">DIY</span><span class="badge badge-critical">Critical</span></div>
+      </div>
+
+      <div class="task">
+        <input type="checkbox" class="task-check">
+        <div class="task-body">
+          <div class="task-title">Check boiler vent termination after major snowstorms</div>
+          <div class="task-detail">The outdoor termination of the boiler's exhaust vent (usually white PVC through an exterior wall) can be blocked by snow drifting against the house. If blocked, the boiler will shut down and display an error. Check it after significant snow events and clear any blockage — but don't damage the pipe or create a permanent obstruction. Also check the combustion air intake (usually a second pipe near the exhaust).</div>
+        </div>
+        <div class="task-meta"><span class="badge badge-diy">DIY</span></div>
+      </div>
+
+      <div class="task">
+        <input type="checkbox" class="task-check">
+        <div class="task-body">
+          <div class="task-title">Watch for ice dams on the roof</div>
+          <div class="task-detail">An ice dam is a ridge of ice at the edge of your roof that prevents snowmelt from draining. Water backs up behind it and can seep into the house. Signs: large icicles at the roofline, ice buildup at the eave edge, or water stains appearing on interior ceilings near exterior walls. If you see an ice dam forming: do not try to hack it off (you'll damage shingles). A roofer or ice dam removal service can remove it safely with steam. Prevention: proper attic insulation prevents the warm roof that causes them in the first place.</div>
+        </div>
+        <div class="task-meta"><span class="badge badge-diy">DIY</span></div>
+      </div>
+
+      <div class="task">
+        <input type="checkbox" class="task-check">
+        <div class="task-body">
+          <div class="task-title">Check for condensation issues on windows</div>
+          <div class="task-detail">Denver is dry, but heating a home increases indoor moisture. Condensation forming on windows in winter is usually fine. Condensation forming between double-pane window layers (foggy interior that doesn't wipe away) means the window seal has failed — it's no longer insulating effectively and the glass unit should be replaced. This is likely relevant as you work through window replacements.</div>
+        </div>
+        <div class="task-meta"><span class="badge badge-diy">DIY</span></div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- =================== AS NEEDED =================== -->
+  <div class="section" id="asneeded">
+    <div class="section-header">
+      <h2>As-Needed / Longer Interval Tasks</h2>
+      <span class="section-tag">Every 2–10 Years</span>
+    </div>
+
+    <div class="task-list">
+      <div class="task">
+        <input type="checkbox" class="task-check">
+        <div class="task-body">
+          <div class="task-title">Water heater anode rod inspection (every 3–5 years)</div>
+          <div class="task-detail">Not applicable for your boiler, but if you ever add a traditional tank water heater in the lower unit or elsewhere, the anode rod sacrificially corrodes to protect the tank and needs replacing every 3–5 years. Without it, the tank itself corrodes and fails. Hire a plumber.</div>
+        </div>
+        <div class="task-meta"><span class="badge badge-pro">Hire Out</span></div>
+      </div>
+
+      <div class="task">
+        <input type="checkbox" class="task-check">
+        <div class="task-body">
+          <div class="task-title">Electrical panel inspection (every 5 years, especially in pre-1978 home)</div>
+          <div class="task-detail">Have a licensed electrician inspect the panel for signs of overloading, corrosion, double-tapped breakers (two wires on one breaker — a code violation), or outdated wiring. Pre-1978 homes may have aluminum wiring, Federal Pacific or Zinsco panels (known fire hazards), or insufficient capacity for modern loads. Worth verifying this was flagged or cleared on your inspection report.</div>
+        </div>
+        <div class="task-meta"><span class="badge badge-pro">Hire Out</span></div>
+      </div>
+
+      <div class="task">
+        <input type="checkbox" class="task-check">
+        <div class="task-body">
+          <div class="task-title">Sewer line inspection (every 5–10 years, sooner in older homes)</div>
+          <div class="task-detail">A plumber can run a camera through the main sewer line to check for root intrusion, corrosion, or bellied pipe (a low spot where solids accumulate). Pre-1978 homes may have clay tile sewer lines, which are prone to tree root intrusion and cracking. A camera inspection costs $150–$400. A sewer backup is a nightmare — periodic inspection is cheap insurance.</div>
+        </div>
+        <div class="task-meta"><span class="badge badge-pro">Hire Out</span></div>
+      </div>
+
+      <div class="task">
+        <input type="checkbox" class="task-check">
+        <div class="task-body">
+          <div class="task-title">Caulk and re-grout tile in bathrooms (every 3–7 years)</div>
+          <div class="task-detail">Grout and caulk around tub/shower surrounds, countertops, and floor transitions deteriorate and crack over time. Water getting behind tile can cause significant hidden damage. Re-caulking is DIY-able; re-grouting requires a bit more skill. Check annually and address any cracking or lifting promptly.</div>
+        </div>
+        <div class="task-meta"><span class="badge badge-diy">DIY</span></div>
+      </div>
+
+      <div class="task">
+        <input type="checkbox" class="task-check">
+        <div class="task-body">
+          <div class="task-title">Check and replace toilet flappers and fill valves as needed</div>
+          <div class="task-detail">A running toilet (you can hear it refilling randomly when no one used it) is usually a worn flapper — a $5–$10 DIY fix. A constantly running toilet can waste thousands of gallons of water and significantly increase your water bill. These are easy, no-skill repairs with YouTube tutorial backup.</div>
+        </div>
+        <div class="task-meta"><span class="badge badge-diy">DIY</span></div>
+      </div>
+    </div>
+
+    <div class="callout callout-warn" style="margin-top:16px;">
+      <strong>On the horizon from your renovation:</strong> As you add mini-splits, new windows, and reconfigure the primary suite and kitchen, each of those systems will have their own maintenance requirements. When those are installed, ask the installer for the specific maintenance schedule for each unit/product. Add those items to this checklist.
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- =================== FINDING A TECH =================== -->
+  <div class="section" id="findpro">
+    <div class="section-header">
+      <h2>Finding the Right Technician</h2>
+      <span class="section-tag">Who to Call and What to Ask</span>
+    </div>
+
+    <h3>For Boiler Service and Repairs</h3>
+    <div class="callout callout-boiler">
+      The most important search: find a <strong>Navien Service Specialist (NSS)</strong> before you need one urgently. Use Navien's official locator at <strong>navieninc.com/where-to-buy</strong> or call Navien Technical Support at <strong>1-800-519-8794</strong> and ask for an NSS in Denver/80212. An NSS has manufacturer-specific training on Navien systems and is the only tech Navien will work with on warranty repairs. For a unit with a 15-year parts warranty, this matters a lot.
+    </div>
+
+    <div class="task-list">
+      <div class="task">
+        <input type="checkbox" class="task-check">
+        <div class="task-body">
+          <div class="task-title">Search terms to find the right boiler tech</div>
+          <div class="task-detail">
+            Use these search terms, in order of preference:<br>
+            1. "Navien Service Specialist Denver" or "NSS Denver Colorado"<br>
+            2. "Navien certified technician Denver 80212"<br>
+            3. "hydronic boiler service Denver" (more general, but confirms they work on boiler systems not just furnaces)<br>
+            4. "condensing combi boiler service Denver"<br><br>
+            Avoid: General HVAC companies that primarily service forced-air furnaces — they may not have experience with hydronic/radiant systems and Navien-specific quirks. Ask directly: "Do you have experience servicing Navien combi-boilers and are you an NSS?" If they're not sure what a combi-boiler is, keep looking.
+          </div>
+        </div>
+        <div class="task-meta"><span class="badge badge-pro">Hire Out</span></div>
+      </div>
+
+      <div class="task">
+        <input type="checkbox" class="task-check">
+        <div class="task-body">
+          <div class="task-title">Questions to ask before booking a boiler tech</div>
+          <div class="task-detail">
+            • Are you a Navien Service Specialist (NSS)?<br>
+            • Do you carry common Navien parts (3-way valve, flow sensor, pump) on your truck, or will repairs require a parts order?<br>
+            • What do you charge for an annual service visit?<br>
+            • Do you offer a maintenance plan or annual contract?<br>
+            • Are you licensed and insured in Colorado?<br>
+            • Can you verify the venting was installed correctly for a boiler at Denver's altitude?<br><br>
+            On the first visit: ask the tech to show you the condensate trap, the pressure gauge, and how to clean the air filter yourself. A good tech will spend 5 minutes educating you.
+          </div>
+        </div>
+        <div class="task-meta"><span class="badge badge-pro">Hire Out</span></div>
+      </div>
+    </div>
+
+    <h3>For Other Home Systems</h3>
+    <div class="task-list">
+      <div class="task">
+        <input type="checkbox" class="task-check">
+        <div class="task-body">
+          <div class="task-title">Plumber</div>
+          <div class="task-detail">For leaks, sewer issues, fixture replacement, and anything water-related that isn't the boiler. Search "licensed plumber Denver 80212" and verify they're licensed with the Colorado State Plumbing Board. For sewer inspections: "sewer camera inspection Denver."</div>
+        </div>
+        <div class="task-meta"><span class="badge badge-pro">Hire Out</span></div>
+      </div>
+
+      <div class="task">
+        <input type="checkbox" class="task-check">
+        <div class="task-body">
+          <div class="task-title">Electrician</div>
+          <div class="task-detail">For panel work, adding circuits, or any wiring concerns. Search "licensed electrician Denver" and verify they're licensed with the City and County of Denver. For pre-1978 homes, specify that you may have older wiring and want someone familiar with renovation projects.</div>
+        </div>
+        <div class="task-meta"><span class="badge badge-pro">Hire Out</span></div>
+      </div>
+
+      <div class="task">
+        <input type="checkbox" class="task-check">
+        <div class="task-body">
+          <div class="task-title">Mini-split service (once installed)</div>
+          <div class="task-detail">Search for the brand of mini-split you install (e.g., "Mitsubishi Diamond Contractor Denver" or "Daikin certified installer Denver"). Brand-certified contractors have factory training and can honor equipment warranties. Annual service by a certified tech protects your investment.</div>
+        </div>
+        <div class="task-meta"><span class="badge badge-pro">Hire Out</span></div>
+      </div>
+
+      <div class="task">
+        <input type="checkbox" class="task-check">
+        <div class="task-body">
+          <div class="task-title">General contractor / handyman</div>
+          <div class="task-detail">For the wide range of non-licensed work: caulking, painting, minor carpentry, gutter cleaning, etc. Search "licensed general contractor Denver" for larger projects (anything requiring a permit needs a licensed GC). For smaller work, "insured handyman Denver 80212." Always verify insurance — especially for anyone working on a home with a second unit, since liability exposure is higher.</div>
+        </div>
+        <div class="task-meta"><span class="badge badge-pro">Hire Out</span></div>
+      </div>
+    </div>
+
+    <div class="callout callout-info" style="margin-top: 16px;">
+      <strong>Tip for all contractors:</strong> Always ask for a written quote before work starts, verify they're licensed and insured, and check Google and NextDoor reviews from Denver neighbors specifically. For first-time work on your property, get 2–3 quotes to calibrate what fair pricing looks like in your market. Once you find good people, stay with them — relationships with reliable tradespeople are genuinely valuable.
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <footer style="font-size: 12px; color: var(--ink-light); text-align: center; padding-top: 8px;">
+    West Highlands, Denver 80212 · Navien NFC-250/200H S/N: 6681E2561349021 · Navien Support: 1-800-519-8794 · Xcel Gas Emergency: 1-800-895-2999<br>
+    Based on Navien NFC-250/200H User's Information Manual, Navien maintenance guidelines, and Denver-specific homeowner best practices · 2026
+  </footer>
+
+</div>
+
+<script>
+  // Persist checkbox state in sessionStorage
+  document.querySelectorAll('.task-check').forEach((cb, i) => {
+    const key = 'task_' + i;
+    cb.checked = sessionStorage.getItem(key) === 'true';
+    cb.addEventListener('change', () => {
+      sessionStorage.setItem(key, cb.checked);
+      const task = cb.closest('.task');
+      task.style.opacity = cb.checked ? '0.5' : '1';
+    });
+    if (cb.checked) cb.closest('.task').style.opacity = '0.5';
+  });
+</script>
+</body>
+</html>
