@@ -1,0 +1,1574 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Renovation Master Checklist — 3045 Stuart St</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,400;0,600;1,300&family=DM+Sans:wght@300;400;500;600&display=swap');
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg: #f5f2ee;
+  --surface: #ffffff;
+  --surface2: #faf8f5;
+  --ink: #1e1b18;
+  --ink-mid: #4a4540;
+  --ink-light: #7a736a;
+  --rule: #e0dbd4;
+  --accent: #8b5e3c;
+  --accent-warm: #c4813d;
+  --phase-now: #c0392b;
+  --phase-pre: #d4682a;
+  --phase-reno: #2a6e4a;
+  --phase-exterior: #2a4e7a;
+  --phase-later: #5a4a7a;
+  --phase-ongoing: #4a5a4a;
+  --tag-bg-now: #fdf0ef;
+  --tag-bg-pre: #fdf4ec;
+  --tag-bg-reno: #eef6f1;
+  --tag-bg-ext: #eef1f8;
+  --tag-bg-later: #f2eef8;
+  --tag-bg-ongoing: #eef2ee;
+  --diy: #2a6e4a;
+  --diy-bg: #eef6f1;
+  --hire: #2a4e7a;
+  --hire-bg: #eef1f8;
+  --both: #7a4a1a;
+  --both-bg: #f8f0e8;
+}
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.page {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 48px 24px 80px;
+}
+
+/* HEADER */
+header {
+  margin-bottom: 40px;
+  padding-bottom: 32px;
+  border-bottom: 2px solid var(--ink);
+}
+
+.eyebrow {
+  font-size: 11px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--ink-light);
+  margin-bottom: 10px;
+  font-weight: 500;
+}
+
+h1 {
+  font-family: 'Fraunces', serif;
+  font-size: 38px;
+  font-weight: 300;
+  line-height: 1.1;
+  letter-spacing: -.5px;
+  color: var(--ink);
+  margin-bottom: 12px;
+}
+
+.header-meta {
+  font-size: 13px;
+  color: var(--ink-light);
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.header-meta span { display: flex; align-items: center; gap: 5px; }
+
+/* LEGEND */
+.legend-bar {
+  background: var(--surface);
+  border: 1px solid var(--rule);
+  border-radius: 8px;
+  padding: 16px 20px;
+  margin-bottom: 32px;
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.legend-title {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  color: var(--ink-light);
+  flex-shrink: 0;
+}
+
+.legend-group {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.pill-now    { background: var(--tag-bg-now);     color: var(--phase-now); }
+.pill-pre    { background: var(--tag-bg-pre);     color: var(--phase-pre); }
+.pill-reno   { background: var(--tag-bg-reno);    color: var(--phase-reno); }
+.pill-ext    { background: var(--tag-bg-ext);     color: var(--phase-exterior); }
+.pill-later  { background: var(--tag-bg-later);   color: var(--phase-later); }
+.pill-ongoing { background: var(--tag-bg-ongoing); color: var(--phase-ongoing); }
+.pill-diy    { background: var(--diy-bg);         color: var(--diy); }
+.pill-hire   { background: var(--hire-bg);        color: var(--hire); }
+.pill-both   { background: var(--both-bg);        color: var(--both); }
+
+/* NAV */
+.phase-nav {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: rgba(245,242,238,.97);
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid var(--rule);
+  padding: 10px 0;
+  margin-bottom: 32px;
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.nav-btn {
+  background: var(--surface);
+  border: 1px solid var(--rule);
+  border-radius: 20px;
+  padding: 5px 14px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--ink-mid);
+  cursor: pointer;
+  transition: all .15s;
+  white-space: nowrap;
+}
+.nav-btn:hover { background: var(--ink); color: white; border-color: var(--ink); }
+
+/* PHASE BLOCK */
+.phase {
+  margin-bottom: 48px;
+}
+
+.phase-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 20px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--rule);
+}
+
+.phase-stripe {
+  width: 4px;
+  height: 32px;
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+.stripe-now     { background: var(--phase-now); }
+.stripe-pre     { background: var(--phase-pre); }
+.stripe-reno    { background: var(--phase-reno); }
+.stripe-ext     { background: var(--phase-exterior); }
+.stripe-later   { background: var(--phase-later); }
+.stripe-ongoing { background: var(--phase-ongoing); }
+
+.phase-title-wrap h2 {
+  font-family: 'Fraunces', serif;
+  font-size: 22px;
+  font-weight: 400;
+  color: var(--ink);
+  line-height: 1.2;
+}
+.phase-title-wrap p {
+  font-size: 12px;
+  color: var(--ink-light);
+  margin-top: 2px;
+}
+
+.phase-pill { margin-left: auto; flex-shrink: 0; }
+
+/* GROUP */
+.group {
+  margin-bottom: 24px;
+}
+
+.group-label {
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--ink-light);
+  margin-bottom: 8px;
+  padding-left: 2px;
+}
+
+/* ITEM CARD */
+.item {
+  background: var(--surface);
+  border: 1px solid var(--rule);
+  border-radius: 7px;
+  padding: 14px 16px;
+  margin-bottom: 6px;
+  display: grid;
+  grid-template-columns: 18px 1fr;
+  gap: 12px;
+  align-items: start;
+  transition: box-shadow .15s;
+  position: relative;
+}
+
+.item:hover { box-shadow: 0 2px 8px rgba(0,0,0,.06); }
+
+.item.critical { border-left: 3px solid var(--phase-now); }
+.item.done { opacity: .5; }
+
+.item-check {
+  width: 16px;
+  height: 16px;
+  border: 1.5px solid #ccc;
+  border-radius: 3px;
+  margin-top: 2px;
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  background: white;
+  transition: all .15s;
+  flex-shrink: 0;
+}
+.item-check:checked {
+  background: var(--ink);
+  border-color: var(--ink);
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 12 12' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M2 6l3 3 5-5' stroke='white' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-size: 11px;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.item-body { min-width: 0; }
+
+.item-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 5px;
+  flex-wrap: wrap;
+}
+
+.item-title {
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--ink);
+  line-height: 1.3;
+}
+
+.item-tags {
+  display: flex;
+  gap: 5px;
+  flex-wrap: wrap;
+  flex-shrink: 0;
+}
+
+.item-detail {
+  font-size: 13px;
+  color: var(--ink-mid);
+  line-height: 1.55;
+}
+
+.item-cost {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--accent);
+  margin-top: 5px;
+  font-family: 'DM Sans', sans-serif;
+}
+
+.item-note {
+  font-size: 12px;
+  color: var(--accent-warm);
+  margin-top: 5px;
+  font-style: italic;
+  line-height: 1.4;
+}
+
+.dep-tag {
+  display: inline-block;
+  background: #f5f0e8;
+  color: #7a5a2a;
+  border-radius: 3px;
+  font-size: 11px;
+  padding: 1px 6px;
+  margin-top: 5px;
+  font-weight: 500;
+}
+
+/* HOW-TO BOX */
+.howto {
+  background: var(--surface2);
+  border: 1px solid var(--rule);
+  border-left: 3px solid var(--accent);
+  border-radius: 5px;
+  padding: 10px 14px;
+  margin-top: 8px;
+  font-size: 12.5px;
+  color: var(--ink-mid);
+  line-height: 1.5;
+}
+.howto strong { color: var(--ink); }
+
+/* CALLOUT */
+.callout {
+  border-radius: 6px;
+  padding: 12px 16px;
+  margin-bottom: 16px;
+  font-size: 13px;
+  line-height: 1.55;
+}
+.callout-warn {
+  background: #fdf0ef;
+  border-left: 3px solid var(--phase-now);
+  color: #7a1a10;
+}
+.callout-info {
+  background: #f0f4fa;
+  border-left: 3px solid var(--phase-exterior);
+  color: #1a3a6a;
+}
+.callout-bundle {
+  background: #eef6f1;
+  border-left: 3px solid var(--phase-reno);
+  color: #1a4a30;
+}
+
+hr.divider {
+  border: none;
+  border-top: 1px solid var(--rule);
+  margin: 40px 0;
+}
+
+footer {
+  font-size: 12px;
+  color: var(--ink-light);
+  padding-top: 16px;
+  border-top: 1px solid var(--rule);
+  line-height: 1.8;
+}
+
+@media print {
+  .phase-nav, .nav-btn { display: none; }
+  .item { break-inside: avoid; }
+}
+</style>
+</head>
+<body>
+<div class="page">
+
+<header>
+  <div class="eyebrow">3043 / 3045 Stuart Street · Denver CO 80212 · West Highlands</div>
+  <h1>Renovation &<br>Remediation Master Checklist</h1>
+  <div class="header-meta">
+    <span>Closed: April 3, 2026</span>
+    <span>·</span>
+    <span>Purchase: $928,600</span>
+    <span>·</span>
+    <span>Reno budget: $150K–$250K</span>
+    <span>·</span>
+    <span>Navien boiler S/N: 6681E2561349021</span>
+  </div>
+</header>
+
+<div class="legend-bar">
+  <span class="legend-title">Phase:</span>
+  <div class="legend-group">
+    <span class="pill pill-now">🔴 Immediate</span>
+    <span class="pill pill-pre">🟠 Pre-Reno</span>
+    <span class="pill pill-reno">🟢 Bundle w/ Reno</span>
+    <span class="pill pill-ext">🔵 Exterior Phase</span>
+    <span class="pill pill-later">🟣 Later</span>
+    <span class="pill pill-ongoing">⚫ Ongoing</span>
+  </div>
+  <span class="legend-title" style="margin-left:8px">Who:</span>
+  <div class="legend-group">
+    <span class="pill pill-diy">DIY</span>
+    <span class="pill pill-hire">Hire Out</span>
+    <span class="pill pill-both">Either</span>
+  </div>
+</div>
+
+<div class="phase-nav">
+  <span style="font-size:11px;font-weight:600;color:var(--ink-light);padding:5px 4px;">Jump:</span>
+  <button class="nav-btn" onclick="go('immediate')">🔴 Immediate</button>
+  <button class="nav-btn" onclick="go('prereno')">🟠 Pre-Reno</button>
+  <button class="nav-btn" onclick="go('team')">👥 Team</button>
+  <button class="nav-btn" onclick="go('reno')">🟢 Reno Scope</button>
+  <button class="nav-btn" onclick="go('exterior')">🔵 Exterior</button>
+  <button class="nav-btn" onclick="go('decisions')">🤔 Decisions</button>
+  <button class="nav-btn" onclick="go('later')">🟣 Later</button>
+  <button class="nav-btn" onclick="go('ongoing')">⚫ Ongoing</button>
+</div>
+
+<!-- ======================== IMMEDIATE ======================== -->
+<div class="phase" id="immediate">
+  <div class="phase-header">
+    <div class="phase-stripe stripe-now"></div>
+    <div class="phase-title-wrap">
+      <h2>Immediate — Week of Closing</h2>
+      <p>Safety, legal, and insurance items that can't wait. Start these calls on closing day or the day after.</p>
+    </div>
+    <span class="pill pill-now phase-pill">🔴 Immediate</span>
+  </div>
+
+  <div class="callout callout-warn">
+    <strong>Insurance check first:</strong> Call your homeowner's insurance carrier on closing day. Confirm your policy covers the property with Zinsco panels, and ask what their requirement/timeline is for replacement. Many Colorado insurers require replacement within 30–60 days or will non-renew. Don't assume you're covered.
+  </div>
+
+  <div class="group">
+    <div class="group-label">Safety — Act Within Days</div>
+
+    <div class="item critical">
+      <input type="checkbox" class="item-check">
+      <div class="item-body">
+        <div class="item-top">
+          <span class="item-title">Call homeowner's insurance — Zinsco panel confirmation</span>
+          <div class="item-tags"><span class="pill pill-now">Immediate</span><span class="pill pill-diy">DIY</span></div>
+        </div>
+        <div class="item-detail">Confirm coverage, ask about the requirement for panel replacement, and get the deadline in writing. If they require it within 30–60 days and you can't schedule the electrician that fast, you need to know now. Also confirm whether the renovation scope triggers any policy changes (some carriers require notification of ongoing renovation).</div>
+        <div class="item-cost">Cost: Free call</div>
+      </div>
+    </div>
+
+    <div class="item critical">
+      <input type="checkbox" class="item-check">
+      <div class="item-body">
+        <div class="item-top">
+          <span class="item-title">Book licensed electrician — Zinsco panel replacement</span>
+          <div class="item-tags"><span class="pill pill-now">Immediate</span><span class="pill pill-hire">Hire Out</span></div>
+        </div>
+        <div class="item-detail">Both panels must be replaced. Do this before any other trades are on site — Zinsco breakers can appear off while still live, which is a shock hazard for every contractor who touches a circuit. Replacement requires a permit and Xcel Energy meter pull (5–10 business days advance notice required), so the total timeline from booking to completed work is 2–3 weeks minimum. Call this week even if you don't have possession yet — you can book the appointment for after closing. Get 2–3 quotes.</div>
+        <span class="dep-tag">⚡ Dependency: Must happen before reno trades start</span>
+        <div class="item-cost">Estimated cost: $8,000–$15,000 for both panels + associated electrical work (service entrance, damaged conductor, permit)</div>
+        <div class="howto"><strong>How to find:</strong> Search "Zinsco panel replacement Denver licensed electrician." Ask specifically about Zinsco experience. Confirm they pull the permit and handle Xcel coordination. Get itemized quotes. Note: the $6,400 price reduction from seller likely does not fully cover this scope — budget the full amount.</div>
+        <div class="item-note">When booking, tell them to also quote: GFCI additions (exterior, garage, laundry, downstairs kitchen), open junction boxes in attic, damaged conductor repair, service entrance cable securing, new circuits for induction cooktop, mini-splits, and bathroom exhaust fans. One mobilization, one permit.</div>
+      </div>
+    </div>
+
+    <div class="item critical">
+      <input type="checkbox" class="item-check">
+      <div class="item-body">
+        <div class="item-top">
+          <span class="item-title">Book radon mitigation contractor</span>
+          <div class="item-tags"><span class="pill pill-now">Immediate</span><span class="pill pill-hire">Hire Out</span></div>
+        </div>
+        <div class="item-detail">Radon tested above EPA action level (4.0 pCi/L) at inspection. Mitigation must be installed before you move in and ideally before demo starts — drilling through the slab and routing PVC pipe is cleanest through an unfinished space. Sub-slab depressurization is the standard method for this foundation type. After installation, retest — aim for under 2.0 pCi/L (EPA recommends action at 4.0, but 2.0 is the lower target). EPA recommends re-testing every 2 years after installation.</div>
+        <span class="dep-tag">⚡ Dependency: Install before demo starts; easier before floors/walls are finished</span>
+        <div class="item-cost">Estimated cost: $1,400–$2,500 for standard slab/basement installation</div>
+        <div class="howto"><strong>How to find:</strong> Search "radon mitigation Denver NRPP certified" or "NRSB certified radon contractor Denver." Must be licensed through Colorado DORA. Get 2–3 quotes. Contractor should provide a post-installation retest kit. Fan typically lasts 12–15 years; replacement runs $200–$400 when needed.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="group">
+    <div class="group-label">Immediate DIY — Do First Week You Have Possession</div>
+
+    <div class="item">
+      <input type="checkbox" class="item-check">
+      <div class="item-body">
+        <div class="item-top">
+          <span class="item-title">Remove foam gutter inserts, clean gutters</span>
+          <div class="item-tags"><span class="pill pill-now">Immediate</span><span class="pill pill-diy">DIY</span></div>
+        </div>
+        <div class="item-detail">The foam gutter inserts trap debris and retain moisture against the fascia — they are actively causing deterioration. Pull them out entirely (they just lift out), scoop out the accumulated debris and vegetation, and do not replace with foam. If gutter protection is wanted later, choose a product that sheds debris rather than trapping it. This is actively worsening the fascia damage that you'll be paying a contractor to repair.</div>
+        <div class="item-cost">Cost: Free / afternoon of work</div>
+      </div>
+    </div>
+
+    <div class="item">
+      <input type="checkbox" class="item-check">
+      <div class="item-body">
+        <div class="item-top">
+          <span class="item-title">Install downspout extensions (6+ feet from foundation)</span>
+          <div class="item-tags"><span class="pill pill-now">Immediate</span><span class="pill pill-diy">DIY</span></div>
+        </div>
+        <div class="item-detail">The inspection flagged downspouts draining too close to the foundation. Snap-on plastic downspout extenders are available at any hardware store for $5–$15 each. Water pooling against this foundation is a root cause of some of the basement moisture history and contributes to pressure on the retaining wall. Five minutes per downspout.</div>
+        <div class="item-cost">Cost: $20–$60 total</div>
+      </div>
+    </div>
+
+    <div class="item">
+      <input type="checkbox" class="item-check">
+      <div class="item-body">
+        <div class="item-top">
+          <span class="item-title">Locate and label all shutoffs: water main, gas main, electrical disconnects</span>
+          <div class="item-tags"><span class="pill pill-now">Immediate</span><span class="pill pill-diy">DIY</span></div>
+        </div>
+        <div class="item-detail">Water main shutoff is in the basement per inspection report. Gas shutoff is at the meter. Electrical disconnects are next to the meter boxes. Know where all three are before anyone starts any work on the property. Label them with tape if not already labeled. Make sure Kevin knows too.</div>
+        <div class="item-cost">Cost: Free</div>
+      </div>
+    </div>
+
+    <div class="item">
+      <input type="checkbox" class="item-check">
+      <div class="item-body">
+        <div class="item-top">
+          <span class="item-title">Install smoke and CO detectors — minimum one per floor, one near boiler</span>
+          <div class="item-tags"><span class="pill pill-now">Immediate</span><span class="pill pill-diy">DIY</span></div>
+        </div>
+        <div class="item-detail">Do not wait for reno to address this. You need working CO detectors before you spend any time in the house, especially with the gas boiler. Buy new detectors (combination smoke+CO units are fine). Upper level: one in the hallway outside bedrooms, one near the boiler. Lower level: one in the hallway outside bedrooms. Test monthly.</div>
+        <div class="item-cost">Cost: $25–$50/unit; budget $150–$200 for the house</div>
+      </div>
+    </div>
+
+    <div class="item">
+      <input type="checkbox" class="item-check">
+      <div class="item-body">
+        <div class="item-top">
+          <span class="item-title">Install missing fence post cap (northwest garage)</span>
+          <div class="item-tags"><span class="pill pill-now">Immediate</span><span class="pill pill-diy">DIY</span></div>
+        </div>
+        <div class="item-detail">Inspect flagged a missing vinyl post cap. Buy the correct size at a hardware store. Prevents insect intrusion and moisture damage. Five-minute fix.</div>
+        <div class="item-cost">Cost: $5–$15</div>
+      </div>
+    </div>
+
+    <div class="item">
+      <input type="checkbox" class="item-check">
+      <div class="item-body">
+        <div class="item-top">
+          <span class="item-title">Repair dishwasher high loop — downstairs kitchen</span>
+          <div class="item-tags"><span class="pill pill-now">Immediate</span><span class="pill pill-diy">DIY</span></div>
+        </div>
+        <div class="item-detail">The downstairs dishwasher drain hose lacks a high loop, meaning dirty water can backflow into the dishwasher. The hose was found full of growth. Either route the drain hose up to cabinet height before connecting to the drain (the "high loop" — a DIY fix under the sink), or replace the hose entirely. This is independent of any renovation work. Don't use the dishwasher until this is fixed.</div>
+        <div class="item-cost">Cost: $0 (reposition hose) to $20 (new hose)</div>
+      </div>
+    </div>
+
+    <div class="item">
+      <input type="checkbox" class="item-check">
+      <div class="item-body">
+        <div class="item-top">
+          <span class="item-title">Register Navien boiler warranty</span>
+          <div class="item-tags"><span class="pill pill-now">Immediate</span><span class="pill pill-diy">DIY</span></div>
+        </div>
+        <div class="item-detail">Go to navieninc.com and register with: Serial 6681E2561349021, your name, and installation date. Navien will not ship warranty parts without registration. The 15-year parts warranty is only valuable if you're registered. Takes 5 minutes.</div>
+        <div class="item-cost">Cost: Free</div>
+      </div>
+    </div>
+
+    <div class="item critical">
+      <input type="checkbox" class="item-check">
+      <div class="item-body">
+        <div class="item-top">
+          <span class="item-title">Rekey all exterior locks</span>
+          <div class="item-tags"><span class="pill pill-now">Immediate</span><span class="pill pill-diy">DIY</span></div>
+        </div>
+        <div class="item-detail">You don't know who has keys to this property — previous owners, contractors, real estate agents, neighbors. Rekey all exterior door locks the first week you have possession. Rekeying changes the internal pins of the lock cylinder so existing keys no longer work, without replacing the hardware. Since you plan to replace the doors eventually, there's no reason to buy new locksets now — rekey what's there, then swap hardware when doors are replaced (the installer handles the new locks at that point). Buy a brand-specific rekey kit at any hardware store ($15–$25 for Kwikset or Schlage — check which brand your locks are before buying). Each lock takes about 10 minutes to rekey following the kit instructions. Do both units, all exterior doors.</div>
+        <div class="item-cost">Cost: $20–$50 for rekey kit(s)</div>
+        <div class="item-note">Note: the upstairs front door deadbolt is already flagged for adjustment (it doesn't engage cleanly per inspection). Rekey it anyway now for security, then have a handyman adjust the strike plate alignment when convenient.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ======================== PRE-RENO ======================== -->
+<div class="phase" id="prereno">
+  <div class="phase-header">
+    <div class="phase-stripe stripe-pre"></div>
+    <div class="phase-title-wrap">
+      <h2>Pre-Renovation — Before Demo Starts</h2>
+      <p>Must be completed before any construction begins. Some have 2–4 week lead times — start them in parallel with team assembly.</p>
+    </div>
+    <span class="pill pill-pre phase-pill">🟠 Pre-Reno</span>
+  </div>
+
+  <div class="callout callout-warn">
+    <strong>Pre-1978 construction:</strong> This house predates 1978. Before any demo, sanding, cutting, or drilling into existing surfaces, assume lead paint and possibly asbestos until tested. Contractors must follow EPA RRP rules. Asbestos testing must happen before demo day — not on the same day.
+  </div>
+
+  <div class="group">
+    <div class="group-label">Testing — Must Happen Before Demo</div>
+
+    <div class="item critical">
+      <input type="checkbox" class="item-check">
+      <div class="item-body">
+        <div class="item-top">
+          <span class="item-title">Asbestos testing — kitchen and bathrooms</span>
+          <div class="item-tags"><span class="pill pill-pre">Pre-Reno</span><span class="pill pill-hire">Hire Out</span></div>
+        </div>
+        <div class="item-detail">Already in the budget. In a 1960s home, asbestos is most commonly found in: floor tile adhesive (mastic), drywall joint compound, pipe insulation around boiler lines, and ceiling texture. A certified inspector takes samples and sends to a lab — results in 2–5 business days. If found, abatement before demo. If not found, proceed. Do not skip this step thinking you'll "deal with it if it comes up" — disturbing asbestos without proper handling is both a health hazard and a legal liability.</div>
+        <span class="dep-tag">⚡ Must complete before any demo work</span>
+        <div class="item-cost">Estimated cost: $300–$600 for testing; $0–$8,000 for abatement if found (already in contingency)</div>
+        <div class="howto"><strong>How to find:</strong> Search "asbestos testing Denver certified inspector" or "Colorado asbestos inspector CDPHE." Inspector must be certified by Colorado CDPHE. Ask about turnaround time — some labs offer 24-hour rush if you need results faster.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="group">
+    <div class="group-label">Team Assembly — Start Immediately, Takes Weeks</div>
+
+    <div class="item critical">
+      <input type="checkbox" class="item-check">
+      <div class="item-body">
+        <div class="item-top">
+          <span class="item-title">Hire independent residential interior designer</span>
+          <div class="item-tags"><span class="pill pill-pre">Pre-Reno</span><span class="pill pill-hire">Hire Out</span></div>
+        </div>
+        <div class="item-detail">Recommended approach: independent designer (not design-build), then competitive GC bids. Your scope — structural wall removal, bathroom reconfiguration with drain relocation, masonry window enlargements, defined aesthetic vision — benefits from someone who creates a full spec package you own, rather than a GC's in-house designer whose decisions favor build efficiency. Look for a residential interior designer who handles space planning, layout, and material selection for renovation projects in older Denver homes. Ask to see examples of kitchens and baths in similar-scale renovations. Many designers charge hourly ($100–$200/hr) or a flat fee for scope definition + drawings.</div>
+        <span class="dep-tag">⚡ Designer must be hired before GC bids can be accurate</span>
+        <div class="item-cost">Estimated cost: $3,000–$12,000 depending on scope of design services</div>
+        <div class="howto"><strong>How to find:</strong> Search "residential interior designer Denver renovation," ask in West Highlands / Denver neighborhood Facebook groups or Nextdoor, check Houzz for Denver designers with renovation portfolios. Interview 2–3. Ask: Do you produce permit-ready drawings or coordinate with a structural engineer? Do you do site visits during construction? Can you provide a spec package for contractor bidding?</div>
+        <div class="item-note">Realistic timeline note: Design → drawings → permits (4–8 weeks in Denver for structural work) → GC bids → construction. Starting design now means construction realistically begins late summer 2026 at the earliest.</div>
+      </div>
+    </div>
+
+    <div class="item">
+      <input type="checkbox" class="item-check">
+      <div class="item-body">
+        <div class="item-top">
+          <span class="item-title">Engage structural engineer (for wall removal beam + window enlargements)</span>
+          <div class="item-tags"><span class="pill pill-pre">Pre-Reno</span><span class="pill pill-hire">Hire Out</span></div>
+        </div>
+        <div class="item-detail">The kitchen wall removal requires a structural beam — the engineer specifies beam size, post/column sizing, and footing requirements. The window enlargements into brick masonry also require structural engineering to determine header sizing and lateral support. Your designer may coordinate this, or you may hire the engineer directly. Either way, structural drawings are required before the permit can be issued. Denver requires a licensed structural engineer's stamp on these drawings.</div>
+        <div class="item-cost">Estimated cost: $1,500–$4,000 for residential structural engineering (beam + window openings)</div>
+        <div class="howto"><strong>How to find:</strong> Ask your designer for a referral — most designers have structural engineers they work with regularly. Or search "residential structural engineer Denver." Verify Colorado PE license.</div>
+      </div>
+    </div>
+
+    <div class="item">
+      <input type="checkbox" class="item-check">
+      <div class="item-body">
+        <div class="item-top">
+          <span class="item-title">Solicit GC bids (after design package is ready)</span>
+          <div class="item-tags"><span class="pill pill-pre">Pre-Reno</span><span class="pill pill-hire">Hire Out</span></div>
+        </div>
+        <div class="item-detail">Get bids from at least 3 licensed GCs using the same design package so bids are truly comparable. Look for GCs with experience in: 1960s/pre-1978 Denver homes, structural wall removal, masonry/brick work, and bathroom reconfiguration. Ask each for 3 references from comparable projects you can actually call. Verify Colorado contractor license and insurance. Ask specifically: how do you handle asbestos or lead discovered during demo? What's your subcontractor vetting process? Who is the on-site project manager day-to-day?</div>
+        <span class="dep-tag">⚡ Dependency: Requires completed design package</span>
+        <div class="item-cost">Budget $150K–$250K total reno; bids will refine this</div>
+        <div class="howto"><strong>How to find:</strong> Ask your designer for GC referrals (they work with them regularly and know who is reliable). Nextdoor West Highlands community is good for real neighbor referrals. Avoid Yelp for GCs — results skew toward high-advertising firms, not necessarily best quality.</div>
+      </div>
+    </div>
+
+    <div class="item">
+      <input type="checkbox" class="item-check">
+      <div class="item-body">
+        <div class="item-top">
+          <span class="item-title">Find and book Navien Service Specialist (NSS) for boiler annual service</span>
+          <div class="item-tags"><span class="pill pill-pre">Pre-Reno</span><span class="pill pill-hire">Hire Out</span></div>
+        </div>
+        <div class="item-detail">Find your boiler tech now, before you need one urgently in January. Verify the boiler leak repair done by seller was completed correctly — ask the tech to inspect it. Schedule fall annual service in September before heating season. The tech should also verify altitude commissioning is correct for Denver (5,280 ft).</div>
+        <div class="item-cost">Annual service: $150–$300</div>
+        <div class="howto"><strong>How to find:</strong> navieninc.com/where-to-buy, or call Navien Support at 1-800-519-8794 and ask for an NSS in 80212. Or search "Navien Service Specialist Denver." Ask: Are you an NSS? Do you carry common Navien parts on your truck?</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="group">
+    <div class="group-label">Permits and Process — Start Early, Have Lead Time</div>
+
+    <div class="item">
+      <input type="checkbox" class="item-check">
+      <div class="item-body">
+        <div class="item-top">
+          <span class="item-title">Pull renovation permits (Denver Community Planning and Development)</span>
+          <div class="item-tags"><span class="pill pill-pre">Pre-Reno</span><span class="pill pill-hire">Hire Out</span></div>
+        </div>
+        <div class="item-detail">Your GC typically pulls permits, but you should understand what's required. The scope will need: building permit (structural wall removal, bathroom reconfiguration), electrical permit (panel replacement + new circuits — your electrician handles this separately), plumbing permit (drain relocation if needed), possibly a mechanical permit for mini-splits. Window enlargements into masonry may require a separate permit. Denver CPD permit review for structural work typically takes 4–8 weeks. Do not start construction without permits — code violations on a pre-1978 home can trigger broader compliance requirements.</div>
+        <div class="item-cost">Permit fees: typically $1,000–$3,000 for this scope; already in budget</div>
+        <div class="howto"><strong>Denver CPD:</strong> denvergov.org/permits. Your GC should handle permit applications. Ask them explicitly: "What permits will you pull and which are my responsibility?" The electrician pulls their own permit. The radon contractor pulls theirs.</div>
+      </div>
+    </div>
+
+    <div class="item">
+      <input type="checkbox" class="item-check">
+      <div class="item-body">
+        <div class="item-top">
+          <span class="item-title">Pest control — ant colonies at north walkway</span>
+          <div class="item-tags"><span class="pill pill-pre">Pre-Reno</span><span class="pill pill-hire">Hire Out</span></div>
+        </div>
+        <div class="item-detail">Inspection found ant activity adjacent to the north walkway. Over time this contributes to soil displacement and drainage concerns. Treat before summer peak season. Also ask the pest control company to do a general inspection of the property — a 1960s house that has been a duplex for years may have other pest entry points worth addressing before walls close up during reno.</div>
+        <div class="item-cost">$150–$400 for treatment; $75–$150 for general inspection</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ======================== TEAM ======================== -->
+<div class="phase" id="team">
+  <div class="phase-header">
+    <div class="phase-stripe stripe-pre"></div>
+    <div class="phase-title-wrap">
+      <h2>Contacts to Secure — Your Trades Roster</h2>
+      <p>Find these people before you need them. A good trade relationship is worth more than any individual job.</p>
+    </div>
+    <span class="pill pill-pre phase-pill">🟠 Pre-Reno</span>
+  </div>
+
+  <div class="group">
+    <div class="group-label">Must Secure Before Construction</div>
+
+    <div class="item">
+      <input type="checkbox" class="item-check">
+      <div class="item-body">
+        <div class="item-top">
+          <span class="item-title">Licensed electrician — Zinsco specialist</span>
+          <div class="item-tags"><span class="pill pill-hire">Hire Out</span></div>
+        </div>
+        <div class="item-detail">Primary scope: both panel replacements + all inspection electrical items + new reno circuits. Search: "Zinsco panel replacement Denver licensed electrician." Must be licensed with Colorado Electrical Board. Verify they pull permits and handle Xcel Energy meter pull coordination. Get 2–3 bids.</div>
+      </div>
+    </div>
+
+    <div class="item">
+      <input type="checkbox" class="item-check">
+      <div class="item-body">
+        <div class="item-top">
+          <span class="item-title">NRPP/NRSB-certified radon mitigation contractor</span>
+          <div class="item-tags"><span class="pill pill-hire">Hire Out</span></div>
+        </div>
+        <div class="item-detail">Must be DORA-licensed. Get 2–3 bids. Should provide post-install retest kit and guarantee levels below 4.0 pCi/L or return for free. Search: "radon mitigation Denver NRPP certified."</div>
+      </div>
+    </div>
+
+    <div class="item">
+      <input type="checkbox" class="item-check">
+      <div class="item-body">
+        <div class="item-top">
+          <span class="item-title">CDPHE-certified asbestos inspector/abatement contractor</span>
+          <div class="item-tags"><span class="pill pill-hire">Hire Out</span></div>
+        </div>
+        <div class="item-detail">Testing and abatement are often separate companies. Find both. Abatement contractor must be CDPHE-certified. Search: "asbestos testing Denver CDPHE certified" and "asbestos abatement Denver." Inspector takes samples; lab analyzes; abatement removes if found.</div>
+      </div>
+    </div>
+
+    <div class="item">
+      <input type="checkbox" class="item-check">
+      <div class="item-body">
+        <div class="item-top">
+          <span class="item-title">Residential interior designer</span>
+          <div class="item-tags"><span class="pill pill-hire">Hire Out</span></div>
+        </div>
+        <div class="item-detail">Independent (not design-build). Specializes in 1960s Denver home renovations. Produces space plans, material specs, and coordinates with structural engineer. Style: transitional/warm, mid-century modern, Scandinavian. Not farmhouse. Not all-white. Not open shelving. Durable, practical, good natural light. Search Houzz, neighborhood Facebook groups, designer referrals.</div>
+      </div>
+    </div>
+
+    <div class="item">
+      <input type="checkbox" class="item-check">
+      <div class="item-body">
+        <div class="item-top">
+          <span class="item-title">General contractor (after design package complete)</span>
+          <div class="item-tags"><span class="pill pill-hire">Hire Out</span></div>
+        </div>
+        <div class="item-detail">Licensed Colorado GC. Experience with pre-1978 Denver homes, structural work, masonry, bathroom reconfiguration. Get 3 bids from same design package. Verify license, insurance, references. Ask about daily site management and subcontractor oversight.</div>
+      </div>
+    </div>
+
+    <div class="item">
+      <input type="checkbox" class="item-check">
+      <div class="item-body">
+        <div class="item-top">
+          <span class="item-title">Mini-split installer — brand-certified</span>
+          <div class="item-tags"><span class="pill pill-hire">Hire Out</span></div>
+        </div>
+        <div class="item-detail">Choose the brand first (Mitsubishi, Daikin, LG, Fujitsu are common quality options), then find a brand-certified installer. Certification matters for equipment warranty. Upper level: 2–3 zones (living/dining, primary bedroom, office/second area). Lower level: optional given below-grade natural cooling. Search: "[Brand] Diamond Contractor Denver" or "[Brand] certified installer Denver 80212." Get mini-split bids while getting GC bids — they can often coordinate the electrical rough-in together.</div>
+        <div class="item-cost">Estimated: $8,000–$17,000 for both levels</div>
+      </div>
+    </div>
+
+    <div class="item">
+      <input type="checkbox" class="item-check">
+      <div class="item-body">
+        <div class="item-top">
+          <span class="item-title">Navien Service Specialist (NSS)</span>
+          <div class="item-tags"><span class="pill pill-hire">Hire Out</span></div>
+        </div>
+        <div class="item-detail">Find before you need emergency service in January. Verify boiler leak repair (from inspection resolution) was done correctly. Schedule fall annual service in September. Navien: 1-800-519-8794 or navieninc.com/where-to-buy.</div>
+      </div>
+    </div>
+
+    <div class="item">
+      <input type="checkbox" class="item-check">
+      <div class="item-body">
+        <div class="item-top">
+          <span class="item-title">Licensed plumber</span>
+          <div class="item-tags"><span class="pill pill-hire">Hire Out</span></div>
+        </div>
+        <div class="item-detail">Your GC will likely sub out plumbing, but know who it is and confirm they're licensed. Scope includes: bath drain relocation (if layout requires), corrugated drain pipe replacement at upstairs guest bath sink, downstairs bathroom sink stoppers. Verify Colorado State Plumbing Board license.</div>
+      </div>
+    </div>
+
+    <div class="item">
+      <input type="checkbox" class="item-check">
+      <div class="item-body">
+        <div class="item-top">
+          <span class="item-title">Masonry/concrete contractor</span>
+          <div class="item-tags"><span class="pill pill-hire">Hire Out</span></div>
+        </div>
+        <div class="item-detail">Needed for: window enlargements into brick, retaining wall evaluation (NW of garage), brick deterioration at lower level entry, balcony post base repair, balcony slab crack repair, north walkway concrete replacement. Multiple of these can be bundled in one visit. Search "masonry contractor Denver brick" and "concrete contractor Denver 80212."</div>
+      </div>
+    </div>
+
+    <div class="item">
+      <input type="checkbox" class="item-check">
+      <div class="item-body">
+        <div class="item-top">
+          <span class="item-title">Chimney sweep / certified chimney professional</span>
+          <div class="item-tags"><span class="pill pill-hire">Hire Out</span></div>
+        </div>
+        <div class="item-detail">Needed before fall when you want to use the fireplace. Cracked firebricks and missing mortar — do not use the fireplace until repaired. Need: Level 1 or Level 2 inspection, firebox lining repair, and sweep cleaning. Search "CSIA certified chimney sweep Denver." Book by August so you have availability before heating season.</div>
+        <div class="item-cost">Inspection: $150–$300; firebox repair: $500–$3,000+ depending on extent</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ======================== RENO SCOPE ======================== -->
+<div class="phase" id="reno">
+  <div class="phase-header">
+    <div class="phase-stripe stripe-reno"></div>
+    <div class="phase-title-wrap">
+      <h2>Renovation Scope — Bundle With Construction</h2>
+      <p>Items to fold into your Phase 1 renovation. These are most cost-efficient done by active trades already on site.</p>
+    </div>
+    <span class="pill pill-reno phase-pill">🟢 Bundle w/ Reno</span>
+  </div>
+
+  <div class="callout callout-bundle">
+    <strong>Bundling principle:</strong> Any item that requires the same trade already on site for another reason should be scoped and priced at the same time. The goal is to minimize separate mobilizations, separate permit fees, and separate disruption periods. Tell your GC and each subcontractor about all items on this list — let them flag what they can bundle.
+  </div>
+
+  <div class="group">
+    <div class="group-label">Kitchen — Full Gut and Open-Concept Reconfigure</div>
+
+    <div class="item">
+      <input type="checkbox" class="item-check">
+      <div class="item-body">
+        <div class="item-top">
+          <span class="item-title">Full kitchen gut and remodel</span>
+          <div class="item-tags"><span class="pill pill-reno">Bundle w/ Reno</span><span class="pill pill-hire">Hire Out</span></div>
+        </div>
+        <div class="item-detail">Scope: remove existing cabinets/countertops/appliances, remove wall between kitchen and living room (structural beam required), install IKEA/RTA plywood-box Shaker cabinets with drawer lowers, mid-range quartz countertops, induction cooktop (simpler install, safer for future renters), peninsula with overhang for breakfast bar, south counter run under windows, LVP flooring. No plumbing relocation — keeping existing kitchen location. Remove soffits to maximize cabinet height. Stairwell half-wall opening for light and drop zone/mud room at back entry.</div>
+        <div class="item-note">Confirm with designer: peninsula sizing relative to traffic flow, south window counter run, and whether back stairwell half-wall is structurally feasible before finalizing layout.</div>
+      </div>
+    </div>
+
+    <div class="item">
+      <input type="checkbox" class="item-check">
+      <div class="item-body">
+        <div class="item-top">
+          <span class="item-title">Kitchen window replacement (3–4 windows, same size)</span>
+          <div class="item-tags"><span class="pill pill-reno">Bundle w/ Reno</span><span class="pill pill-hire">Hire Out</span></div>
+        </div>
+        <div class="item-detail">Replace existing single-pane aluminum kitchen windows with energy-efficient double-pane units in same rough openings. Existing openings should meet Denver EERO reduced standard (4 sq ft, 22" height, 20" width per Appendix AJ104.8.3) since these aren't bedroom egress windows. Confirm existing opening dimensions before ordering windows.</div>
+        <div class="item-cost">Estimated: $1,500–$4,000 for 3–4 windows (same-size replacement)</div>
+      </div>
+    </div>
+
+    <div class="item">
+      <input type="checkbox" class="item-check">
+      <div class="item-body">
+        <div class="item-top">
+          <span class="item-title">Induction cooktop electrical circuit</span>
+          <div class="item-tags"><span class="pill pill-reno">Bundle w/ Reno</span><span class="pill pill-hire">Hire Out</span></div>
+        </div>
+        <div class="item-detail">240V dedicated circuit required for induction cooktop. Must be coordinated between your electrician (new panel + circuit rough-in) and GC (wall access during demo). Confirm circuit amperage with the specific cooktop model you select (typically 40–50A). Have electrician quote this circuit when they quote the panel replacement.</div>
+        <span class="dep-tag">⚡ Coordinate: electrician ↔ GC ↔ cooktop model selection</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="group">
+    <div class="group-label">Primary Suite — Full East Wing Upper Level</div>
+
+    <div class="item">
+      <input type="checkbox" class="item-check">
+      <div class="item-body">
+        <div class="item-top">
+          <span class="item-title">Primary suite buildout — full east wing conversion</span>
+          <div class="item-tags"><span class="pill pill-reno">Bundle w/ Reno</span><span class="pill pill-hire">Hire Out</span></div>
+        </div>
+        <div class="item-detail">Scope: combine both bedrooms and full east wing into primary suite. Hall bath becomes primary en suite (gut and rebuild: curbless or low-curb shower with frameless glass, new vanity with storage, new toilet, tile). En suite becomes walk-in closet (fixtures removed, plumbing capped, semi-custom closet system with drawers). Closet zone becomes powder room (half bath — toilet + small sink, accessed from hallway). New hallway configuration, reclaim entry transition depth once adjacent bathroom absorbed. Upper level result: 1 bedroom / 1 full bath / 1 half bath.</div>
+        <div class="item-note">Shower: Low-profile curb (2–3") with frameless glass rather than curbless — better for renters, easier waterproofing. Vanity: storage-forward, not floating. Ask designer about wall-hung toilet option (adds ~$800–$1,200 but visual impact in small bath is significant).</div>
+      </div>
+    </div>
+
+    <div class="item">
+      <input type="checkbox" class="item-check">
+      <div class="item-body">
+        <div class="item-top">
+          <span class="item-title">Bathroom exhaust fans — ducted to exterior</span>
+          <div class="item-tags"><span class="pill pill-reno">Bundle w/ Reno</span><span class="pill pill-hire">Hire Out</span></div>
+        </div>
+        <div class="item-detail">Inspection found no mechanical exhaust fans in upstairs bathrooms (major defect). Both the new en suite and the powder room need exhaust fans ducted to the exterior — not recirculating. Coordinate with GC and electrician during rough-in. This is already being addressed by the bathroom reno but make sure it's explicitly in the scope and spec.</div>
+      </div>
+    </div>
+
+    <div class="item">
+      <input type="checkbox" class="item-check">
+      <div class="item-body">
+        <div class="item-top">
+          <span class="item-title">Bath window replacement (2 windows, same-size)</span>
+          <div class="item-tags"><span class="pill pill-reno">Bundle w/ Reno</span><span class="pill pill-hire">Hire Out</span></div>
+        </div>
+        <div class="item-detail">Replace single-pane aluminum bath windows during bath demo — cheapest time to do it since the space is already gutted and trades are already there. Double-pane replacements in same rough openings.</div>
+        <div class="item-cost">Estimated: $1,000–$2,000 for 2 windows</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="group">
+    <div class="group-label">Electrical — Bundle With Panel Replacement Electrician Visit</div>
+
+    <div class="item">
+      <input type="checkbox" class="item-check">
+      <div class="item-body">
+        <div class="item-top">
+          <span class="item-title">GFCI additions — exterior, garage, laundry, downstairs kitchen</span>
+          <div class="item-tags"><span class="pill pill-reno">Bundle w/ Reno</span><span class="pill pill-hire">Hire Out</span></div>
+        </div>
+        <div class="item-detail">Inspection flagged missing GFCI protection in all these locations. Have the panel replacement electrician add these in the same trip — it's minor additional work when they're already there. Downstairs kitchen GFCI can be a GFCI-protected circuit or individual GFCI outlets. All exterior outlets need weatherproof covers in addition to GFCI protection.</div>
+      </div>
+    </div>
+
+    <div class="item">
+      <input type="checkbox" class="item-check">
+      <div class="item-body">
+        <div class="item-top">
+          <span class="item-title">Cover open junction boxes in attic</span>
+          <div class="item-tags"><span class="pill pill-reno">Bundle w/ Reno</span><span class="pill pill-hire">Hire Out</span></div>
+        </div>
+        <div class="item-detail">Open junction boxes in attic are a fire hazard. Electrician installs junction box covers — 15-minute job per box. Bundle with panel replacement visit. Costs almost nothing as an add-on.</div>
+      </div>
+    </div>
+
+    <div class="item">
+      <input type="checkbox" class="item-check">
+      <div class="item-body">
+        <div class="item-top">
+          <span class="item-title">Fix service entrance — secure unsecured cables</span>
+          <div class="item-tags"><span class="pill pill-reno">Bundle w/ Reno</span><span class="pill pill-hire">Hire Out</span></div>
+        </div>
+        <div class="item-detail">Unsecured and hanging cables at the service entrance on the exterior. Electrician addresses during panel replacement — they're in that area anyway. Make sure it's explicitly in the quote.</div>
+      </div>
+    </div>
+
+    <div class="item">
+      <input type="checkbox" class="item-check">
+      <div class="item-body">
+        <div class="item-top">
+          <span class="item-title">Evaluate defective exterior light fixture wiring before replacement</span>
+          <div class="item-tags"><span class="pill pill-reno">Bundle w/ Reno</span><span class="pill pill-hire">Hire Out</span></div>
+        </div>
+        <div class="item-detail">Scorch marks on exterior fixture sockets suggest possible wiring issue, not just fixture failure. Have electrician evaluate the wiring at each location before new fixtures go up. If wiring is fine, new fixtures are a simple DIY swap. If wiring needs repair, electrician handles it.</div>
+      </div>
+    </div>
+
+    <div class="item">
+      <input type="checkbox" class="item-check">
+      <div class="item-body">
+        <div class="item-top">
+          <span class="item-title">Ungrounded receptacles in bedrooms and living room</span>
+          <div class="item-tags"><span class="pill pill-reno">Bundle w/ Reno</span><span class="pill pill-hire">Hire Out</span></div>
+        </div>
+        <div class="item-detail">Three-prong outlets on two-wire ungrounded circuits — false indication of grounding. Fix options: replace with GFCI outlets labeled "No Equipment Ground" (interim fix, cheaper), or run new grounded circuits (permanent fix, more expensive but correct). Since walls are opening during reno anyway, run new grounded circuits in the rooms being renovated. Address remaining rooms with GFCI outlet replacements.</div>
+      </div>
+    </div>
+
+    <div class="item">
+      <input type="checkbox" class="item-check">
+      <div class="item-body">
+        <div class="item-top">
+          <span class="item-title">Mini-split installation — upper level priority</span>
+          <div class="item-tags"><span class="pill pill-reno">Bundle w/ Reno</span><span class="pill pill-hire">Hire Out</span></div>
+        </div>
+        <div class="item-detail">Upper level: 2–3 zones (living/dining, primary bedroom, and possibly office/secondary space). Lower level: optional — naturally cooler due to below-grade position. Coordinate with GC for wall penetrations and with electrician for dedicated circuits. Must select brand before booking installer — warranty requires brand-certified contractor. Get mini-split bids in parallel with GC bids so you can coordinate timing.</div>
+        <span class="dep-tag">⚡ Coordinate: mini-split installer ↔ electrician (circuits) ↔ GC (wall penetrations)</span>
+        <div class="item-cost">Estimated: $8,000–$17,000 for both levels</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="group">
+    <div class="group-label">Additional Windows — Same-Size Replacements (Whole House)</div>
+
+    <div class="item">
+      <input type="checkbox" class="item-check">
+      <div class="item-body">
+        <div class="item-top">
+          <span class="item-title">Window replacement — remaining upper level windows (same-size)</span>
+          <div class="item-tags"><span class="pill pill-reno">Bundle w/ Reno</span><span class="pill pill-hire">Hire Out</span></div>
+        </div>
+        <div class="item-detail">All upper level windows are single-pane aluminum. Replace with double-pane in same rough openings during renovation — GC is already on site, less disruption. Damaged window next to upstairs front door (inspection item 11.2.1) is included here. Confirm which windows are bedroom egress windows and verify they meet Denver EERO standard even in same-size replacement (4 sq ft operable, 22" height, 20" width, max 44" sill height).</div>
+        <div class="item-cost">Estimated: $300–$800/window for same-size replacement; budget $5,000–$12,000 for upper level</div>
+      </div>
+    </div>
+
+    <div class="item">
+      <input type="checkbox" class="item-check">
+      <div class="item-body">
+        <div class="item-top">
+          <span class="item-title">Window enlargement — 2–4 windows (masonry, vertical expansion)</span>
+          <div class="item-tags"><span class="pill pill-reno">Bundle w/ Reno</span><span class="pill pill-hire">Hire Out</span></div>
+        </div>
+        <div class="item-detail">Enlarging windows in a brick masonry building requires cutting brick, installing new lintels/headers, and structural engineer sign-off. Priority windows per prior discussion: primary bedroom and main-floor home office first. Bundle with the masonry contractor already doing other exterior masonry work. Get structural engineer to specify header sizing for each opening. Requires separate permit in Denver.</div>
+        <span class="dep-tag">⚡ Requires: structural engineer drawings, permit, masonry contractor</span>
+        <div class="item-cost">Estimated: $3,000–$8,000 per window (masonry work + structural + new window)</div>
+        <div class="item-note">Note: window enlargement for bedroom windows also resolves any egress compliance questions permanently — enlarged openings will clearly exceed EERO minimums.</div>
+      </div>
+    </div>
+
+    <div class="item">
+      <input type="checkbox" class="item-check">
+      <div class="item-body">
+        <div class="item-top">
+          <span class="item-title">Lower level window replacement (if extending window reno)</span>
+          <div class="item-tags"><span class="pill pill-reno">Bundle w/ Reno</span><span class="pill pill-hire">Hire Out</span></div>
+        </div>
+        <div class="item-detail">If window contractor is already on site for upper level, extend scope to lower level for efficiency. Same-size replacements only unless enlargement is planned. TBD based on budget after upper level is scoped.</div>
+        <div class="item-cost">Same per-window estimate as above</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="group">
+    <div class="group-label">Lower Level Cosmetics — Lower Priority, Bundle if Trades Are There</div>
+
+    <div class="item">
+      <input type="checkbox" class="item-check">
+      <div class="item-body">
+        <div class="item-top">
+          <span class="item-title">Downstairs kitchen cosmetic refresh</span>
+          <div class="item-tags"><span class="pill pill-reno">Bundle w/ Reno</span><span class="pill pill-both">Either</span></div>
+        </div>
+        <div class="item-detail">Keeping lower kitchen functional (no gut reno). Cosmetic fixes only: backsplash update, new hardware, paint, mirror update in bath, fix sink stoppers (downstairs bathroom). Fix the drain slope issue (inspection 13.1.2) if a plumber is already on site for bathroom work — adding drain slope correction is minor add-on work.</div>
+        <div class="item-cost">Estimated: $1,500–$4,000 for cosmetics + minor plumbing fix</div>
+      </div>
+    </div>
+
+    <div class="item">
+      <input type="checkbox" class="item-check">
+      <div class="item-body">
+        <div class="item-top">
+          <span class="item-title">Replace noisy downstairs garbage disposal</span>
+          <div class="item-tags"><span class="pill pill-reno">Bundle w/ Reno</span><span class="pill pill-both">Either</span></div>
+        </div>
+        <div class="item-detail">Inspection found excessive noise from downstairs disposal. Plumber or handy DIYer can replace. Bundle with any plumbing visit to the lower level.</div>
+        <div class="item-cost">$150–$400 for new disposal + installation</div>
+      </div>
+    </div>
+
+    <div class="item">
+      <input type="checkbox" class="item-check">
+      <div class="item-body">
+        <div class="item-top">
+          <span class="item-title">Fix wobbly ceiling fan in lower level far bedroom</span>
+          <div class="item-tags"><span class="pill pill-reno">Bundle w/ Reno</span><span class="pill pill-hire">Hire Out</span></div>
+        </div>
+        <div class="item-detail">Inspection flagged as "extremely wobbly at higher speeds — safety concern." Electrician can tighten or replace during their other electrical work in the lower level. Simple fix when they're already there.</div>
+        <div class="item-cost">$50–$200 repair or replacement</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ======================== EXTERIOR ======================== -->
+<div class="phase" id="exterior">
+  <div class="phase-header">
+    <div class="phase-stripe stripe-ext"></div>
+    <div class="phase-title-wrap">
+      <h2>Exterior Phase</h2>
+      <p>Carport demo, overhang removal, masonry repairs, drainage. Bundle masonry items in one contractor visit.</p>
+    </div>
+    <span class="pill pill-ext phase-pill">🔵 Exterior</span>
+  </div>
+
+  <div class="group">
+    <div class="group-label">Demo and Structural Removal</div>
+
+    <div class="item">
+      <input type="checkbox" class="item-check">
+      <div class="item-body">
+        <div class="item-top">
+          <span class="item-title">Demo carport connected to garage</span>
+          <div class="item-tags"><span class="pill pill-ext">Exterior</span><span class="pill pill-hire">Hire Out</span></div>
+        </div>
+        <div class="item-detail">Remove carport roof/overhang structure, remove garage door (no replacement needed), replace fence section. This also resolves: major fascia damage at the carport/garage/porch roof transition (inspection 3.2.2), and the garage door safety sensor issue (3.7.4). Check for any electrical running to the carport before demo — have electrician verify and disconnect first. Obtain demo permit from Denver CPD.</div>
+        <div class="item-cost">Estimated: $3,000–$8,000 depending on structure complexity and disposal</div>
+        <div class="item-note">Confirm: any electrical to carport disconnected before demo. Any structural connections to main building assessed by GC or engineer before removal.</div>
+      </div>
+    </div>
+
+    <div class="item">
+      <input type="checkbox" class="item-check">
+      <div class="item-body">
+        <div class="item-top">
+          <span class="item-title">Remove other problematic overhang connected to garage</span>
+          <div class="item-tags"><span class="pill pill-ext">Exterior</span><span class="pill pill-hire">Hire Out</span></div>
+        </div>
+        <div class="item-detail">The improper connection point at the garage-porch junction is creating moisture problems. Remove the structure and properly flash/terminate the garage wall at the transition point. Bundle with carport demo — same contractor, same equipment, same dumpster.</div>
+      </div>
+    </div>
+
+    <div class="item">
+      <input type="checkbox" class="item-check">
+      <div class="item-body">
+        <div class="item-top">
+          <span class="item-title">Concrete demo under removed structures + drainage gravel</span>
+          <div class="item-tags"><span class="pill pill-ext">Exterior</span><span class="pill pill-hire">Hire Out</span></div>
+        </div>
+        <div class="item-detail">Remove concrete under/around the carport and other overhang structures. Before replacing with gravel: verify grading slopes away from foundation (correct grade first, then add gravel). Gravel improves percolation but won't fix drainage problems caused by incorrect slope. Bundle with overall exterior contractor work. Get landscaping/gravel quotes at same time as concrete demo.</div>
+        <div class="item-note">Sequence: fix downspouts first (already done) → verify/correct grade → demo concrete → add gravel. Do not add gravel over bad grading.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="group">
+    <div class="group-label">Masonry — Bundle All In One Contractor Visit</div>
+
+    <div class="item">
+      <input type="checkbox" class="item-check">
+      <div class="item-body">
+        <div class="item-top">
+          <span class="item-title">Brick deterioration at lower level entry (inspection 3.7.3)</span>
+          <div class="item-tags"><span class="pill pill-ext">Exterior</span><span class="pill pill-hire">Hire Out</span></div>
+        </div>
+        <div class="item-detail">Spalling and deterioration at base of brick stair wall where it meets the entry walkway at the lower level. Prior repair attempt failed. Tied to water intrusion history noted in seller disclosure. Masonry contractor patches deteriorated area and reseals joint between wall and walkway. Bundle with other masonry work.</div>
+        <div class="item-cost">$500–$2,000 depending on extent; bundle saves mobilization cost</div>
+      </div>
+    </div>
+
+    <div class="item">
+      <input type="checkbox" class="item-check">
+      <div class="item-body">
+        <div class="item-top">
+          <span class="item-title">Front balcony support post base repair (inspection 3.7.2)</span>
+          <div class="item-tags"><span class="pill pill-ext">Exterior</span><span class="pill pill-hire">Hire Out</span></div>
+        </div>
+        <div class="item-detail">Cracking, deterioration, and failed prior repair at base of a structural support post for the front entry balcony. Water infiltration and continued deterioration risk. Masonry contractor evaluates and patches with appropriate concrete patching material. Bundle with other masonry work on the same trip.</div>
+        <div class="item-cost">$300–$1,200; bundle saves mobilization</div>
+      </div>
+    </div>
+
+    <div class="item">
+      <input type="checkbox" class="item-check">
+      <div class="item-body">
+        <div class="item-top">
+          <span class="item-title">Seal concrete balcony slab crack (inspection 3.7.1)</span>
+          <div class="item-tags"><span class="pill pill-ext">Exterior</span><span class="pill pill-both">Either</span></div>
+        </div>
+        <div class="item-detail">Minor crack in front entry balcony slab. No displacement. Seal with concrete or masonry sealant to prevent water infiltration and freeze-thaw damage. DIY if comfortable — buy a concrete crack filler/sealant at any hardware store. Or bundle with masonry contractor visit. Do before next winter.</div>
+        <div class="item-cost">$20–$50 DIY; $100–$300 if bundled with masonry contractor</div>
+      </div>
+    </div>
+
+    <div class="item">
+      <input type="checkbox" class="item-check">
+      <div class="item-body">
+        <div class="item-top">
+          <span class="item-title">Retaining wall — evaluation and monitoring (inspection 3.4.1)</span>
+          <div class="item-tags"><span class="pill pill-ext">Exterior</span><span class="pill pill-hire">Hire Out</span></div>
+        </div>
+        <div class="item-detail">Inspector noted spalling, cracking, and deterioration at NW side of garage retaining wall, but verbally indicated it's less urgent than the written report implies. Get a masonry contractor to look at it during the other exterior masonry work — marginal cost to add an assessment. Monitor for changes in width or displacement. If the contractor recommends repair, bundle it while they're there; if they say monitor, do so.</div>
+        <div class="item-cost">Assessment: free during other masonry work; repair if needed: $500–$5,000+</div>
+      </div>
+    </div>
+
+    <div class="item">
+      <input type="checkbox" class="item-check">
+      <div class="item-body">
+        <div class="item-top">
+          <span class="item-title">Garage alley-side step cracking — monitor (inspection 3.3.1)</span>
+          <div class="item-tags"><span class="pill pill-ext">Exterior</span><span class="pill pill-both">Either</span></div>
+        </div>
+        <div class="item-detail">Step cracking in brick veneer on alley side of garage. Consistent with differential settlement. Monitor for changes in width or progression — photograph now and compare annually. If cracking increases, get masonry evaluation. No action needed now unless masonry contractor spots something concerning during other exterior work.</div>
+        <div class="item-cost">$0 to monitor; evaluation if needed: $200–$500</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="group">
+    <div class="group-label">Concrete and Walkways</div>
+
+    <div class="item">
+      <input type="checkbox" class="item-check">
+      <div class="item-body">
+        <div class="item-top">
+          <span class="item-title">North walkway replacement — trip hazard (inspection 3.5.1)</span>
+          <div class="item-tags"><span class="pill pill-ext">Exterior</span><span class="pill pill-hire">Hire Out</span></div>
+        </div>
+        <div class="item-detail">Major cracking and displaced slab sections on the north-side walkway. Creates an uneven surface and represents a trip hazard — this is a liability issue, especially once you have visitors or renters. Concrete contractor removes and replaces the displaced section. This is separate from the backyard concrete under the overhang structures. Get concrete contractor and masonry contractor quotes at the same time since they're different trades.</div>
+        <div class="item-cost">Estimated: $1,500–$4,000 depending on square footage of affected slab</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="group">
+    <div class="group-label">Safety — Exterior</div>
+
+    <div class="item critical">
+      <input type="checkbox" class="item-check">
+      <div class="item-body">
+        <div class="item-top">
+          <span class="item-title">Guardrail — interim safety fix now, full replacement with designer later</span>
+          <div class="item-tags"><span class="pill pill-ext">Exterior</span><span class="pill pill-hire">Hire Out</span></div>
+        </div>
+        <div class="item-detail">Two separate code deficiencies per inspection (3.8.1, 3.8.2): (1) Baluster spacing exceeds 4" — current standard requires no 4" sphere can pass through. (2) Guardrail height is only 28" vs. required 36" minimum. Since the property will be unoccupied through the renovation period, there's no urgency to address this before the full replacement. Bring to your designer for aesthetic direction — the full rail rebuild is correctly bundled with the exterior phase. Budget $800–$2,500 depending on material and design. The liability exposure during construction/vacancy is minimal; the issue becomes relevant again once you're living there or renting.</div>
+        <div class="item-cost">Full designer-directed replacement: $800–$2,500</div>
+        <div class="item-note">Address before move-in. Bring to designer early — rail design connects to overall exterior aesthetic.</div>
+      </div>
+    </div>
+
+    <div class="item">
+      <input type="checkbox" class="item-check">
+      <div class="item-body">
+        <div class="item-top">
+          <span class="item-title">Re-attach loose gate posts (inspection 3.11.1)</span>
+          <div class="item-tags"><span class="pill pill-ext">Exterior</span><span class="pill pill-both">Either</span></div>
+        </div>
+        <div class="item-detail">Both north and south gate post assemblies are loose where attached to brick. Re-attach securely. A handyman can do this with the right masonry anchors. Bundle with other exterior handyman work.</div>
+        <div class="item-cost">$100–$300 handyman; or DIY with masonry drill and appropriate anchors</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ======================== DECISIONS ======================== -->
+<div class="phase" id="decisions">
+  <div class="phase-header">
+    <div class="phase-stripe stripe-later"></div>
+    <div class="phase-title-wrap">
+      <h2>Open Decisions — Align Before Bids</h2>
+      <p>These need to be resolved before your designer or GC can fully scope the work. Don't let these linger.</p>
+    </div>
+    <span class="pill pill-later phase-pill">🤔 Decide</span>
+  </div>
+
+  <div class="group">
+    <div class="group-label">Decisions That Affect Reno Scope</div>
+
+    <div class="item">
+      <input type="checkbox" class="item-check">
+      <div class="item-body">
+        <div class="item-top">
+          <span class="item-title">Ceiling vault — decide before attic insulation investment</span>
+          <div class="item-tags"><span class="pill pill-later">Decide First</span></div>
+        </div>
+        <div class="item-detail">If vaulting kitchen/living ceiling is on the table within 3–5 years, do NOT invest in attic insulation upgrades now — you'll tear them out. If vault is firmly "Phase 3 someday / maybe never," then attic insulation is a high-ROI investment now. Get a structural engineer or experienced GC to give you a ballpark for the vault during their site visits — even a rough number helps you decide. Hip roof structure may limit vault options.</div>
+        <div class="item-note">Required before: deciding whether to book attic insulation contractor.</div>
+      </div>
+    </div>
+
+    <div class="item">
+      <input type="checkbox" class="item-check">
+      <div class="item-body">
+        <div class="item-top">
+          <span class="item-title">Mini-split brand selection</span>
+          <div class="item-tags"><span class="pill pill-later">Decide First</span></div>
+        </div>
+        <div class="item-detail">Must choose brand before booking installer — warranty requires brand-certified contractor. Options: Mitsubishi (widest installer network, reliable), Daikin (good quality, growing installer base in Denver), Fujitsu, LG. Research brand availability of certified installers in Denver 80212 before committing. Ask your GC or electrician who they see most often and trust.</div>
+        <div class="item-note">Required before: booking mini-split installer.</div>
+      </div>
+    </div>
+
+    <div class="item">
+      <input type="checkbox" class="item-check">
+      <div class="item-body">
+        <div class="item-top">
+          <span class="item-title">Window enlargement — which windows, which phase</span>
+          <div class="item-tags"><span class="pill pill-later">Decide First</span></div>
+        </div>
+        <div class="item-detail">Enlarging windows into brick is expensive ($3K–$8K per window) but if doing masonry work anyway, bundle discount applies. Prior discussion: primary bedroom and main-floor home office first. Decide: how many, which ones, in this phase or later? Affects structural engineer scope, masonry contractor scope, and permit drawings. The answer also determines whether egress windows will clearly meet code or whether same-size replacement is sufficient.</div>
+        <div class="item-note">Required before: structural engineer drawings, masonry contractor bid.</div>
+      </div>
+    </div>
+
+    <div class="item">
+      <input type="checkbox" class="item-check">
+      <div class="item-body">
+        <div class="item-top">
+          <span class="item-title">Kitchen aesthetic direction — palette and fixture finish</span>
+          <div class="item-tags"><span class="pill pill-later">Decide First</span></div>
+        </div>
+        <div class="item-detail">Still open from prior conversations: warm neutral vs. bold accent for kitchen palette; fixture finish (brass, matte black, brushed nickel). Designer will guide this, but you should arrive at the first consultation with a point of view. Pull your Instagram saved collection — you've done this research already. Style parameters: transitional/warm mid-century modern/Scandinavian, not farmhouse, not all-white, not trendy finishes, not open shelving.</div>
+        <div class="item-note">Required before: designer material selections, cabinet order.</div>
+      </div>
+    </div>
+
+    <div class="item">
+      <input type="checkbox" class="item-check">
+      <div class="item-body">
+        <div class="item-top">
+          <span class="item-title">Appliance selection — shop during design, not before</span>
+          <div class="item-tags"><span class="pill pill-later">Decide During Design</span></div>
+        </div>
+        <div class="item-detail">All existing upper kitchen appliances are being replaced. Do not buy appliances before design is underway — appliance dimensions (especially refrigerator, range, and range hood) directly affect cabinet layout. Buying first and designing around them wastes money on returns or creates awkward gaps. The right sequence: (1) Early in design, decide appliance types and rough sizes so the designer can plan openings — particularly fridge width (30" vs 33" vs 36"), cooktop configuration, and whether you want a built-in or freestanding fridge. (2) Mid-design, select specific models so exact dimensions are locked in before cabinets are ordered. (3) Order appliances for delivery after construction is complete — appliances in an active construction zone get damaged. Key items to select: refrigerator, dishwasher, range hood (must be exterior-vented, not recirculating — affects cabinet layout above), and any undercounter or specialty appliances. Induction cooktop is already decided. Note: the upstairs dishwasher (Kenmore, 2013) was not operated during inspection due to the disposal leak — run it once before demo to confirm function. It's being replaced regardless, but knowing its condition costs nothing.</div>
+        <div class="item-note">Lower level kitchen appliances can be addressed separately in a later phase — no gut reno planned there.</div>
+        <span class="dep-tag">⚡ Dependency: Appliance sizes must be known before cabinet layout is finalized</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ======================== LATER ======================== -->
+<div class="phase" id="later">
+  <div class="phase-header">
+    <div class="phase-stripe stripe-later"></div>
+    <div class="phase-title-wrap">
+      <h2>Later — Lower Priority / Future Phases</h2>
+      <p>Real items, just not urgent. Schedule when time and budget allow.</p>
+    </div>
+    <span class="pill pill-later phase-pill">🟣 Later</span>
+  </div>
+
+  <div class="group">
+    <div class="group-label">Before Fall 2026 (Before You Want the Fireplace)</div>
+
+    <div class="item critical">
+      <input type="checkbox" class="item-check">
+      <div class="item-body">
+        <div class="item-top">
+          <span class="item-title">Chimney inspection + firebox repair</span>
+          <div class="item-tags"><span class="pill pill-later">Before Fall</span><span class="pill pill-hire">Hire Out</span></div>
+        </div>
+        <div class="item-detail">Cracked firebricks and missing mortar in firebox (inspection 14.2.1). Do NOT use the fireplace until repaired. Book a CSIA-certified chimney sweep for a Level 1 or Level 2 inspection, cleaning, and firebox lining repair. Book by August — chimney sweeps are in high demand in September/October. The gas insert was working fine per inspection, but the firebox structure around it needs repair regardless.</div>
+        <div class="item-cost">Inspection + sweep: $150–$300; firebox repair: $500–$3,000+</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="group">
+    <div class="group-label">Attic — Hold Until Vault Decision Made</div>
+
+    <div class="item">
+      <input type="checkbox" class="item-check">
+      <div class="item-body">
+        <div class="item-top">
+          <span class="item-title">Attic insulation upgrade (if vault ruled out)</span>
+          <div class="item-tags"><span class="pill pill-later">Later</span><span class="pill pill-hire">Hire Out</span></div>
+        </div>
+        <div class="item-detail">Currently 3–6 inches of mineral wool — well below Denver's recommended R-49 to R-60. Adding blown-in insulation to 12–15 inches is high ROI for heating bills. Only do this if the ceiling vault is firmly off the table for the foreseeable future — insulating now and vaulting later means removing/abandoning the insulation. Search "blown-in insulation Denver attic."</div>
+        <div class="item-cost">Estimated: $2,000–$5,000 for a house this size</div>
+      </div>
+    </div>
+
+    <div class="item">
+      <input type="checkbox" class="item-check">
+      <div class="item-body">
+        <div class="item-top">
+          <span class="item-title">Attic ventilation improvement (if vault ruled out)</span>
+          <div class="item-tags"><span class="pill pill-later">Later</span><span class="pill pill-hire">Hire Out</span></div>
+        </div>
+        <div class="item-detail">Insufficient ventilation noted by inspector. Same caveat as insulation — different solution required for vaulted vs. flat ceiling. If vault is happening, address attic ventilation as part of that project. If not, add ridge venting, soffit venting, or a powered attic vent. Can be done at same time as insulation upgrade.</div>
+        <div class="item-cost">Estimated: $500–$2,500 depending on solution</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="group">
+    <div class="group-label">Cosmetic / Lower Priority</div>
+
+    <div class="item">
+      <input type="checkbox" class="item-check">
+      <div class="item-body">
+        <div class="item-top">
+          <span class="item-title">Front porch rail replacement + door and trim updates</span>
+          <div class="item-tags"><span class="pill pill-later">Later</span><span class="pill pill-both">Either</span></div>
+        </div>
+        <div class="item-detail">The full front porch rail replacement (addressing the 28" height deficiency and baluster spacing — see guardrail item in Exterior section) should be done with the designer for aesthetic cohesion. Bring this to your first design consultation — it's part of the exterior curb appeal picture along with door hardware and trim. Other items in this cluster: front door glass upgrade ($500–$2,000), storm door adjustment (handyman), and minor trim updates. The deadbolt adjustment on the upstairs front door is noted in the Immediate section under rekeying. Bundle all of this with whatever exterior contractor is on site during the exterior phase.</div>
+        <div class="item-cost">Rail replacement: $800–$2,500 · Door/trim updates: $500–$2,000 · Total: $1,300–$4,500</div>
+      </div>
+    </div>
+
+    <div class="item">
+      <input type="checkbox" class="item-check">
+      <div class="item-body">
+        <div class="item-top">
+          <span class="item-title">Remove swamp cooler from roof</span>
+          <div class="item-tags"><span class="pill pill-later">Later</span><span class="pill pill-hire">Hire Out</span></div>
+        </div>
+        <div class="item-detail">Once mini-splits are installed and you've confirmed you don't need the evaporative cooler, remove it. Removal also allows patching/resealing the roof penetration where it was mounted (inspection noted degraded sealant at the mounting point). Have the same contractor who removes it also seal the roof penetration. Don't leave the penetration open.</div>
+        <div class="item-cost">$300–$800 for removal and roof patch</div>
+      </div>
+    </div>
+
+    <div class="item">
+      <input type="checkbox" class="item-check">
+      <div class="item-body">
+        <div class="item-top">
+          <span class="item-title">Backyard seating area / landscaping</span>
+          <div class="item-tags"><span class="pill pill-later">Later</span><span class="pill pill-both">Either</span></div>
+        </div>
+        <div class="item-detail">Cottage/naturalistic garden style (not strict xeriscape). Get landscaping estimates after concrete is removed so you're working with the actual blank canvas. Wait until exterior masonry and drainage work is complete — don't plant or install hardscape over areas that may still be disturbed. Low priority until the house itself is done.</div>
+      </div>
+    </div>
+
+    <div class="item">
+      <input type="checkbox" class="item-check">
+      <div class="item-body">
+        <div class="item-top">
+          <span class="item-title">Laundry room shelving + paint (lower level)</span>
+          <div class="item-tags"><span class="pill pill-later">Later</span><span class="pill pill-diy">DIY</span></div>
+        </div>
+        <div class="item-detail">Simple DIY: floating shelves above washer/dryer, fresh paint. $200–$500. Do whenever you have a weekend and feel like it. Not urgent.</div>
+      </div>
+    </div>
+
+    <div class="item">
+      <input type="checkbox" class="item-check">
+      <div class="item-body">
+        <div class="item-top">
+          <span class="item-title">Glass/French doors on lower office</span>
+          <div class="item-tags"><span class="pill pill-later">Later</span><span class="pill pill-both">Either</span></div>
+        </div>
+        <div class="item-detail">Install glass or French doors on the lower level office for light flow. $500–$1,500 per door. Easy project, do anytime after move-in when you're ready.</div>
+      </div>
+    </div>
+
+    <div class="item">
+      <input type="checkbox" class="item-check">
+      <div class="item-body">
+        <div class="item-top">
+          <span class="item-title">Motorized roller shades throughout</span>
+          <div class="item-tags"><span class="pill pill-later">Later</span><span class="pill pill-both">Either</span></div>
+        </div>
+        <div class="item-detail">Remove existing plantation shutters (buyer's responsibility to coordinate timing with window replacement). Install motorized roller shades — confirmed preference from prior discussions. Order after windows are finalized so shades are spec'd to exact window sizes. Many window replacement contractors can also install shades.</div>
+        <div class="item-note">Dependency: window sizes must be finalized before ordering shades.</div>
+      </div>
+    </div>
+
+    <div class="item">
+      <input type="checkbox" class="item-check">
+      <div class="item-body">
+        <div class="item-top">
+          <span class="item-title">Sewer line re-scope (inspection follow-up)</span>
+          <div class="item-tags"><span class="pill pill-later">Later</span><span class="pill pill-hire">Hire Out</span></div>
+        </div>
+        <div class="item-detail">Seller cleaned and re-inspected the sewer line to city main per inspection resolution. However, the original inspection found heavy root intrusion in the clay section (40'–67'+). Now that it's been cleaned, re-scope in 1–2 years to verify root intrusion hasn't returned and the clay section is still intact. Clay pipe sections in Denver are prone to recurring root infiltration. Budget for periodic cleaning every 2–3 years as maintenance.</div>
+        <div class="item-cost">Re-scope: $150–$400; cleaning: $200–$500 per occurrence</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ======================== ONGOING ======================== -->
+<div class="phase" id="ongoing">
+  <div class="phase-header">
+    <div class="phase-stripe stripe-ongoing"></div>
+    <div class="phase-title-wrap">
+      <h2>Ongoing — Annual and Seasonal Maintenance</h2>
+      <p>See the separate Homeowner Maintenance Checklist for full detail. Key recurring items specific to this property:</p>
+    </div>
+    <span class="pill pill-ongoing phase-pill">⚫ Ongoing</span>
+  </div>
+
+  <div class="group">
+    <div class="group-label">Annually (see maintenance checklist for full detail)</div>
+
+    <div class="item">
+      <input type="checkbox" class="item-check">
+      <div class="item-body">
+        <div class="item-top">
+          <span class="item-title">Navien boiler annual service — book every September</span>
+          <div class="item-tags"><span class="pill pill-ongoing">Annual</span><span class="pill pill-hire">Hire Out</span></div>
+        </div>
+        <div class="item-detail">Annual tune-up by Navien Service Specialist. Combustion analysis, heat exchanger flush/descale, condensate system, safety controls. Book September — before heating season. $150–$300. S/N: 6681E2561349021. Navien support: 1-800-519-8794.</div>
+      </div>
+    </div>
+
+    <div class="item">
+      <input type="checkbox" class="item-check">
+      <div class="item-body">
+        <div class="item-top">
+          <span class="item-title">Radon re-test every 2 years</span>
+          <div class="item-tags"><span class="pill pill-ongoing">Every 2 Years</span><span class="pill pill-diy">DIY</span></div>
+        </div>
+        <div class="item-detail">After mitigation system is installed: EPA recommends re-testing every 2 years to confirm the system is still performing. A short-term test kit costs $10–$50. Test from the lowest occupied level.</div>
+      </div>
+    </div>
+
+    <div class="item">
+      <input type="checkbox" class="item-check">
+      <div class="item-body">
+        <div class="item-top">
+          <span class="item-title">Mini-split annual service (once installed) — book every spring</span>
+          <div class="item-tags"><span class="pill pill-ongoing">Annual</span><span class="pill pill-hire">Hire Out</span></div>
+        </div>
+        <div class="item-detail">Clean filters monthly during heavy use (DIY). Annual professional service: check refrigerant, clean coil and drain pan, electrical connections, outdoor unit. Brand-certified service keeps warranty valid. $100–$200 per unit. Book in spring before AC season.</div>
+      </div>
+    </div>
+
+    <div class="item">
+      <input type="checkbox" class="item-check">
+      <div class="item-body">
+        <div class="item-top">
+          <span class="item-title">Chimney annual inspection and sweep (once fireplace is repaired)</span>
+          <div class="item-tags"><span class="pill pill-ongoing">Annual</span><span class="pill pill-hire">Hire Out</span></div>
+        </div>
+        <div class="item-detail">Annual chimney sweep and Level 1 inspection before using the fireplace each fall. $150–$300. CSIA-certified sweep.</div>
+      </div>
+    </div>
+
+    <div class="item">
+      <input type="checkbox" class="item-check">
+      <div class="item-body">
+        <div class="item-top">
+          <span class="item-title">Smoke and CO detector battery replacement — early November</span>
+          <div class="item-tags"><span class="pill pill-ongoing">Annual</span><span class="pill pill-diy">DIY</span></div>
+        </div>
+        <div class="item-detail">Note: Colorado no longer observes daylight saving time — pick a fixed November date instead of "when clocks change." Write date on the battery. Test monthly. Replace entire detector unit every 5–7 years (check expiration date on back of each unit).</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <strong>Key contacts:</strong> Navien Support 1-800-519-8794 · Xcel Energy Gas Emergency 1-800-895-2999 · Denver CPD Permits: denvergov.org/permits · Colorado DORA (contractor license verification): dora.colorado.gov<br>
+  <strong>Property:</strong> 3043/3045 Stuart St, Denver CO 80212 · Closed April 3, 2026 · Purchase $928,600 · Navien S/N: 6681E2561349021<br>
+  Based on Golden View Home Inspections report, Inspection Resolution dated 3/27/2026, and renovation plans as discussed. Updated March 2026.
+</footer>
+
+</div>
+
+<script>
+function go(id) {
+  document.getElementById(id).scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+// Persist checkbox state
+document.querySelectorAll('.item-check').forEach((cb, i) => {
+  const key = 'reno_' + i;
+  cb.checked = sessionStorage.getItem(key) === 'true';
+  const item = cb.closest('.item');
+  if (cb.checked) item.classList.add('done');
+  cb.addEventListener('change', () => {
+    sessionStorage.setItem(key, cb.checked);
+    item.classList.toggle('done', cb.checked);
+  });
+});
+</script>
+</body>
+</html>
