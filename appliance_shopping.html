@@ -1,0 +1,1285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>3045 Stuart — Appliance Shopping Document</title>
+<style>
+  :root {
+    --bg: #f7f4ee;
+    --paper: #ffffff;
+    --ink: #1f1d1a;
+    --muted: #6b665e;
+    --rule: #d9d3c6;
+    --accent: #8a4a2b;
+    --accent-soft: #f1e4d6;
+    --good: #4f6e3f;
+    --warn: #b07a1b;
+    --warn-soft: #fbf2dd;
+    --pick1: #2f4a3a;
+    --pick2: #6b665e;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: Georgia, "Iowan Old Style", "Palatino Linotype", serif;
+    line-height: 1.55;
+    font-size: 16px;
+  }
+
+  .page {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 48px 56px;
+    background: var(--paper);
+    box-shadow: 0 1px 0 var(--rule), 0 24px 48px -32px rgba(0,0,0,0.18);
+  }
+
+  /* Header */
+  .doc-header {
+    border-bottom: 2px solid var(--ink);
+    padding-bottom: 24px;
+    margin-bottom: 32px;
+  }
+  .doc-eyebrow {
+    font-family: "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 12px;
+  }
+  .doc-title {
+    font-family: "Iowan Old Style", Georgia, serif;
+    font-size: 38px;
+    line-height: 1.1;
+    margin: 0 0 8px;
+    font-weight: 400;
+  }
+  .doc-sub {
+    font-size: 15px;
+    color: var(--muted);
+    font-style: italic;
+  }
+  .doc-meta {
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+    margin-top: 16px;
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    font-size: 12px;
+    color: var(--muted);
+    letter-spacing: 0.04em;
+  }
+  .doc-meta strong { color: var(--ink); font-weight: 600; }
+
+  /* Section */
+  h2.section-title {
+    font-family: "Iowan Old Style", Georgia, serif;
+    font-size: 26px;
+    font-weight: 400;
+    margin: 48px 0 4px;
+    border-bottom: 1px solid var(--rule);
+    padding-bottom: 8px;
+  }
+  h3.sub-title {
+    font-family: "Iowan Old Style", Georgia, serif;
+    font-size: 20px;
+    font-weight: 400;
+    margin: 28px 0 8px;
+    color: var(--accent);
+  }
+
+  p { margin: 0 0 14px; }
+  p.lede {
+    font-size: 17px;
+    color: var(--ink);
+  }
+
+  /* Callout boxes */
+  .callout {
+    background: var(--warn-soft);
+    border-left: 3px solid var(--warn);
+    padding: 14px 18px;
+    margin: 16px 0 20px;
+    font-size: 14px;
+  }
+  .callout strong { color: var(--ink); }
+  .callout.good {
+    background: #eef2e8;
+    border-left-color: var(--good);
+  }
+  .callout.accent {
+    background: var(--accent-soft);
+    border-left-color: var(--accent);
+  }
+
+  /* Budget summary */
+  .budget {
+    background: #faf6ee;
+    border: 1px solid var(--rule);
+    padding: 20px 24px;
+    margin: 20px 0 32px;
+    font-family: "Helvetica Neue", Arial, sans-serif;
+  }
+  .budget-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 6px 0;
+    font-size: 14px;
+    border-bottom: 1px dotted var(--rule);
+  }
+  .budget-row:last-child { border-bottom: none; }
+  .budget-row.total {
+    margin-top: 8px;
+    padding-top: 12px;
+    border-top: 2px solid var(--ink);
+    border-bottom: none;
+    font-weight: 700;
+    font-size: 16px;
+  }
+  .budget-label { color: var(--muted); }
+  .budget-value { color: var(--ink); font-variant-numeric: tabular-nums; }
+  .budget-row.total .budget-label { color: var(--ink); }
+
+  /* Tables */
+  .pick-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 12px 0 24px;
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    font-size: 13.5px;
+  }
+  .pick-table th {
+    text-align: left;
+    background: #f1ece1;
+    color: var(--ink);
+    font-weight: 600;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 10px 12px;
+    border-bottom: 2px solid var(--ink);
+  }
+  .pick-table td {
+    padding: 14px 12px;
+    border-bottom: 1px solid var(--rule);
+    vertical-align: top;
+    line-height: 1.5;
+  }
+  .pick-table tr.tier-1 td:first-child { border-left: 4px solid var(--pick1); }
+  .pick-table tr.tier-2 td:first-child { border-left: 4px solid var(--pick2); }
+  .pick-table tr.tier-3 td:first-child { border-left: 4px solid var(--accent); }
+
+  .tier-tag {
+    display: inline-block;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 2px 8px;
+    border-radius: 10px;
+    margin-bottom: 6px;
+    font-weight: 600;
+  }
+  .tier-tag.t1 { background: var(--pick1); color: white; }
+  .tier-tag.t2 { background: var(--pick2); color: white; }
+  .tier-tag.t3 { background: var(--accent); color: white; }
+  .tier-tag.aesthetic { background: #5a4a6b; color: white; }
+
+  .model-name {
+    font-weight: 700;
+    color: var(--ink);
+    font-size: 14px;
+    line-height: 1.3;
+  }
+  .model-meta {
+    color: var(--muted);
+    font-size: 12px;
+    margin-top: 4px;
+  }
+  .price {
+    font-weight: 700;
+    color: var(--ink);
+    font-size: 15px;
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+  }
+  .price-was {
+    text-decoration: line-through;
+    color: var(--muted);
+    font-weight: 400;
+    font-size: 12px;
+    display: block;
+  }
+  .price-target {
+    color: var(--good);
+    font-size: 12px;
+    margin-top: 4px;
+    font-weight: 600;
+  }
+
+  ul.pros, ul.cons {
+    margin: 0;
+    padding-left: 16px;
+    font-size: 13px;
+  }
+  ul.pros li, ul.cons li {
+    margin-bottom: 4px;
+  }
+  ul.cons li { color: var(--muted); }
+
+  /* Checkboxes */
+  .check-cell {
+    width: 24px;
+    text-align: center;
+  }
+  .check-cell input {
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+    accent-color: var(--accent);
+  }
+  .check-cell input:checked + .checkmark::before {
+    content: "✓ ";
+    color: var(--good);
+  }
+
+  /* Source citations */
+  .sources {
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    font-size: 11.5px;
+    color: var(--muted);
+    margin-top: 6px;
+    line-height: 1.5;
+  }
+  .sources strong { color: var(--ink); font-weight: 600; }
+
+  /* Section nav */
+  .toc {
+    background: #faf6ee;
+    border: 1px solid var(--rule);
+    padding: 20px 24px;
+    margin: 24px 0 32px;
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    font-size: 13.5px;
+  }
+  .toc-title {
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 10px;
+  }
+  .toc ol {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6px 24px;
+  }
+  .toc ol li {
+    padding-left: 24px;
+    position: relative;
+    counter-increment: toc;
+  }
+  .toc ol { counter-reset: toc; }
+  .toc ol li::before {
+    content: counter(toc, decimal-leading-zero);
+    position: absolute;
+    left: 0;
+    color: var(--muted);
+    font-variant-numeric: tabular-nums;
+    font-size: 11px;
+    top: 1px;
+  }
+  .toc a {
+    color: var(--ink);
+    text-decoration: none;
+    border-bottom: 1px dotted transparent;
+  }
+  .toc a:hover { border-bottom-color: var(--ink); }
+
+  /* Buying timeline */
+  .timeline {
+    border-left: 2px solid var(--ink);
+    padding-left: 24px;
+    margin: 16px 0 24px;
+  }
+  .timeline-item {
+    position: relative;
+    padding-bottom: 18px;
+  }
+  .timeline-item::before {
+    content: "";
+    position: absolute;
+    left: -29px;
+    top: 6px;
+    width: 10px;
+    height: 10px;
+    background: var(--accent);
+    border-radius: 50%;
+    border: 2px solid var(--paper);
+  }
+  .timeline-date {
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 600;
+  }
+  .timeline-body {
+    font-size: 14px;
+    margin-top: 2px;
+  }
+
+  /* Inline emphasis */
+  .pill {
+    display: inline-block;
+    background: var(--accent-soft);
+    color: var(--accent);
+    padding: 1px 8px;
+    border-radius: 10px;
+    font-size: 11px;
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    vertical-align: middle;
+    margin-right: 4px;
+  }
+  .pill.good { background: #eef2e8; color: var(--good); }
+  .pill.muted { background: #ebe6db; color: var(--muted); }
+
+  /* Footer notes */
+  .notes {
+    margin-top: 56px;
+    padding-top: 24px;
+    border-top: 1px solid var(--rule);
+    font-size: 13px;
+    color: var(--muted);
+  }
+  .notes h3 {
+    font-family: Georgia, serif;
+    color: var(--ink);
+    font-size: 16px;
+    font-weight: 700;
+    margin: 0 0 8px;
+  }
+
+  /* Mobile */
+  @media (max-width: 720px) {
+    .page { padding: 28px 18px; }
+    .doc-title { font-size: 28px; }
+    .pick-table { font-size: 12.5px; }
+    .pick-table th, .pick-table td { padding: 10px 8px; }
+    .toc ol { grid-template-columns: 1fr; }
+  }
+
+  @media print {
+    body { background: white; }
+    .page { box-shadow: none; padding: 0; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+<!-- ============== HEADER ============== -->
+<header class="doc-header">
+  <div class="doc-eyebrow">Kitchen + Laundry · Phase 1 Renovation</div>
+  <h1 class="doc-title">3045 Stuart Street — Appliance Shopping Document</h1>
+  <div class="doc-sub">Researched picks with sourcing, pricing, and a buying timeline targeting Memorial Day 2026 sales.</div>
+  <div class="doc-meta">
+    <span><strong>Prepared:</strong> April 27, 2026 · <strong>Revised:</strong> April 27, 2026 (v2)</span>
+    <span><strong>Memorial Day window:</strong> May 14 – May 27, 2026</span>
+    <span><strong>Budget target:</strong> ≤ $10,000 (kitchen) · W/D optional</span>
+  </div>
+</header>
+
+<!-- ============== EXECUTIVE SUMMARY ============== -->
+<p class="lede">Two complete kitchen packages below come in at <strong>$8,200–$8,900</strong> for the kitchen alone, leaving $1,100–$1,800 of headroom. Adding the LG WashTower (electric) makes Tier 1 land at <strong>$10,400–$10,900</strong> — over budget by 4–9%. Tier 2 (mixed best-in-breed) lands at roughly <strong>$9,400 with washer/dryer included</strong> by trading the Bosch fridge for an LG and the Sharp microwave drawer's flush-mount premium for the standard model.</p>
+
+<div class="callout accent">
+  <strong>One important correction up front.</strong> Laura, the "auto door open dry" feature you described is actually <strong>AutoAir on Bosch <u>500</u> series</strong> — the door pops open at the end of the cycle to vent steam. The 800 series uses <strong>CrystalDry</strong> (zeolite minerals that convert moisture to heat) and the door does <em>not</em> pop open. So if the door-popping is the specific feature you want, the 500 series is the right pick — and it saves you $200–$300. The 800 series is better at drying plastics specifically, which is a different value proposition. Both options included below so you can decide.
+</div>
+
+<div class="callout good">
+  <strong>What's new in v2:</strong> Added KitchenAid (KRFC236SPS — dark platinum interior, internal water, no through-door dispenser); LG LRYXC2606S (dark "Cool Guard" metal interior, panoramic LED, 26 cu ft); Café CHS900P2MS1 (induction range with customizable hardware, top lab-tested performer); LG WashCombo and GE Profile UltraFast all-in-one combo washer/dryers. Also flagging the dryer-vent code finding: <strong>two dryers cannot share one vent under IRC code</strong> — see laundry section. And a new "Package D" all-LG ecosystem option in the totals.
+</div>
+
+<!-- TOC -->
+<div class="toc">
+  <div class="toc-title">Contents</div>
+  <ol>
+    <li><a href="#strategy">Buying Strategy &amp; Timeline</a></li>
+    <li><a href="#fridge">Refrigerator</a></li>
+    <li><a href="#range">Induction Range / Cooktop + Wall Oven</a></li>
+    <li><a href="#dishwasher">Dishwasher</a></li>
+    <li><a href="#microwave">Microwave Drawer</a></li>
+    <li><a href="#hood">Vent Hood</a></li>
+    <li><a href="#laundry">Washer / Dryer (optional)</a></li>
+    <li><a href="#packages">Package Totals</a></li>
+    <li><a href="#methodology">Methodology &amp; Sources</a></li>
+  </ol>
+</div>
+
+<!-- ============== STRATEGY ============== -->
+<h2 class="section-title" id="strategy">1 · Buying strategy &amp; timeline</h2>
+
+<p><strong>Memorial Day is the right target.</strong> Lowe's runs its big appliance event May 14–27 with up to 40% off and stacking discounts (Lowe's typical "extra $50 off per $500 spent on major appliances" promo runs during this window). Best Buy, Home Depot, AJ Madison, and the major brand-direct channels all run parallel events. Black Friday and Labor Day are also strong, but Memorial Day historically has the deepest appliance-specific discounts and best inventory before the back-to-school slowdown.</p>
+
+<p><strong>Brand rebate stacking is where the real money is.</strong> Bosch's "Buy More, Save More" rebate is currently active and is the single biggest lever in this whole document — buy 2+ Bosch appliances from different categories and you get up to <strong>$2,040 back</strong> via mail-in rebate. That's why every Tier 1 recommendation below leans Bosch where the spec/reliability data supports it.</p>
+
+<div class="callout good">
+  <strong>What to do this week, before sales start:</strong> (1) Confirm exact appliance dimensions are locked into the cabinet plan with your designer — fridge especially. (2) Set price-tracking alerts on AJ Madison, Best Buy, Home Depot, and Lowe's for your specific model numbers. (3) If going Bosch-heavy, download the current rebate form and read the fine print so you know what counts as "different categories."
+</div>
+
+<h3 class="sub-title">Timeline</h3>
+<div class="timeline">
+  <div class="timeline-item">
+    <div class="timeline-date">Now → May 13</div>
+    <div class="timeline-body">Lock final model selections with designer. Confirm cabinet rough openings match. Set price alerts. <strong>Do not buy yet.</strong></div>
+  </div>
+  <div class="timeline-item">
+    <div class="timeline-date">May 14 (Thu) — Sale opens</div>
+    <div class="timeline-body">Compare lead prices across Lowe's, Best Buy, Home Depot, AJ Madison. Watch for Bosch rebate stacking — sometimes mid-tier dealers run additional incentives.</div>
+  </div>
+  <div class="timeline-item">
+    <div class="timeline-date">May 22–26 (Memorial Day weekend)</div>
+    <div class="timeline-body">Deepest discounts historically land Friday–Sunday. Pull the trigger when target prices hit. Schedule delivery for late summer / early fall — request hold-for-delivery at the dealer (Lowe's and AJ Madison both do this, Home Depot is hit-or-miss).</div>
+  </div>
+  <div class="timeline-item">
+    <div class="timeline-date">May 27 (Wed) — Sale closes</div>
+    <div class="timeline-body">Backstop date. If anything didn't go on sale, Father's Day (mid-June) is the next window, then Labor Day.</div>
+  </div>
+</div>
+
+<div class="callout">
+  <strong>Tariff / inflation note.</strong> The major appliance brands have been quietly raising MSRP roughly 3–6% per year since 2023. That suggests buying before the 2026 fall product refresh (typically September–October) is sensible. It does <em>not</em> suggest panic-buying — you're not going to save more than a few percent by buying earlier than Memorial Day.
+</div>
+
+<!-- ============== REFRIGERATOR ============== -->
+<h2 class="section-title" id="fridge">2 · Refrigerator</h2>
+<p><em>36" counter-depth · French door · freezer on bottom · no in-door ice/water · largest available capacity</em></p>
+
+<p>This is the single hardest specification on your list, because almost every counter-depth French-door fridge on the market has either an in-door ice/water dispenser or is a 4-door / quad model. The two strong options that meet "internal water dispenser, ice in the freezer, clean front" are the Bosch 800 Series B36CT80SNS and the LG LRFLC2706S. Yale Appliance's regional service-call data gives LG the lowest first-year service rate and Bosch the best temperature stability and food preservation. Both meet your spec.</p>
+
+<table class="pick-table">
+  <thead>
+    <tr>
+      <th class="check-cell"></th>
+      <th style="width: 32%;">Model</th>
+      <th>Price</th>
+      <th>Why this pick</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="tier-1">
+      <td class="check-cell"><input type="checkbox" id="c-fridge1"></td>
+      <td>
+        <span class="tier-tag t1">Tier 1 · Recommended</span>
+        <div class="model-name">Bosch 800 Series B36CT80SNS</div>
+        <div class="model-meta">36" · 20.8 cu. ft. · Stainless · Internal water dispenser, ice in freezer · Dual evaporators · Home Connect Wi-Fi</div>
+      </td>
+      <td>
+        <div class="price">$3,499<span class="price-was">$3,899 MSRP</span></div>
+        <div class="price-target">Target: $2,999–$3,199</div>
+      </td>
+      <td>
+        <ul class="pros">
+          <li>Yale data: best temperature stability and food preservation in the category</li>
+          <li>Dual compressor / dual evaporator system — quieter, longer-lasting, fresher produce</li>
+          <li>Sits truly flush — minimal toe-kick gap</li>
+          <li>Stacks with the Bosch rebate (up to $2,040 back across 2+ categories)</li>
+        </ul>
+        <ul class="cons">
+          <li>Freezer is small for a 36" — about half the freezer capacity of comparable LGs</li>
+          <li>Owner reports of slow Bosch service appointments (weeks for warranty work)</li>
+          <li>20.8 cu. ft. is below category average (~22.5)</li>
+        </ul>
+        <div class="sources"><strong>Sources:</strong> Yale Appliance 2026 reliability data (33,000+ service calls); Reviewed.com lab tests (passed all temp tests); Consumer Reports counter-depth lab review.</div>
+      </td>
+    </tr>
+    <tr class="tier-2">
+      <td class="check-cell"><input type="checkbox" id="c-fridge2"></td>
+      <td>
+        <span class="tier-tag t2">Tier 2 · Alternate</span>
+        <div class="model-name">LG LRFLC2706S</div>
+        <div class="model-meta">36" · 26.5 cu. ft. · Stainless · Internal water dispenser, ice in freezer · Linear compressor (10-yr warranty)</div>
+      </td>
+      <td>
+        <div class="price">$2,799<span class="price-was">$3,299 MSRP</span></div>
+        <div class="price-target">Target: $2,299–$2,499</div>
+      </td>
+      <td>
+        <ul class="pros">
+          <li>Yale data: lowest first-year service rate of any counter-depth brand</li>
+          <li>26.5 cu. ft. — substantially more usable space than the Bosch</li>
+          <li>$500–$700 cheaper than the Bosch at sale prices</li>
+          <li>10-year linear compressor warranty</li>
+        </ul>
+        <ul class="cons">
+          <li>CR notes LG French-doors historically prone to compressor issues, but ratings have improved</li>
+          <li>Single-compressor design — slightly less stable temperatures than the Bosch's dual-evap</li>
+          <li>Doesn't stack with a Bosch package rebate</li>
+          <li>Standard light-colored interior (not the dark/backlit aesthetic)</li>
+        </ul>
+        <div class="sources"><strong>Sources:</strong> Yale Appliance 2026 reliability data; Consumer Reports French-door ratings; LG ThinQ extended warranty offer.</div>
+      </td>
+    </tr>
+    <tr class="tier-3">
+      <td class="check-cell"><input type="checkbox" id="c-fridge3"></td>
+      <td>
+        <span class="tier-tag aesthetic">Aesthetic Pick</span>
+        <div class="model-name">LG LRYXC2606S (Counter-Depth MAX)</div>
+        <div class="model-meta">36" · 26 cu. ft. · Stainless · Internal water dispenser · <strong>Cool Guard dark metal interior</strong> · Welcome Lighting LEDs (auto-illuminate as you approach) · Linear compressor</div>
+      </td>
+      <td>
+        <div class="price">$3,299<span class="price-was">$3,799 MSRP</span></div>
+        <div class="price-target">Target: $2,799–$2,999</div>
+      </td>
+      <td>
+        <ul class="pros">
+          <li><strong>Dark metal interior + panoramic LED lighting</strong> — matches the aesthetic Laura was drawn to</li>
+          <li>Same LG reliability data as the LRFLC2706S (lowest first-year service rate)</li>
+          <li>26 cu. ft. — full capacity, no compromise</li>
+          <li>The "automatic LED lights when you approach" is a small but genuine quality-of-life upgrade</li>
+          <li>Pairs with LG range and laundry for LG bundle rebate ($100–$300 off)</li>
+        </ul>
+        <ul class="cons">
+          <li>$400–$500 more than the LRFLC2706S — paying for the interior aesthetic and capacity bump</li>
+          <li>Has Craft Ice / four ice types — adds complexity (and service-call risk) vs. simpler ice maker; can be disabled if you prefer</li>
+          <li>Doesn't stack with the Bosch rebate</li>
+        </ul>
+        <div class="sources"><strong>Sources:</strong> LG product pages; Yale Appliance reliability data; verified owner reviews on Lowe's and Best Buy.</div>
+      </td>
+    </tr>
+    <tr class="tier-3">
+      <td class="check-cell"><input type="checkbox" id="c-fridge4"></td>
+      <td>
+        <span class="tier-tag aesthetic">Aesthetic Pick</span>
+        <div class="model-name">KitchenAid KRFC236SPS</div>
+        <div class="model-meta">36" · 22 cu. ft. · PrintShield Stainless · Internal water dispenser · <strong>Platinum (silver-gray) interior with wood-trim shelves</strong> · Panoramic LED lighting · Preserva dual-cooling system</div>
+      </td>
+      <td>
+        <div class="price">$3,599<span class="price-was">$4,409 MSRP</span></div>
+        <div class="price-target">Target: $2,799–$2,999</div>
+      </td>
+      <td>
+        <ul class="pros">
+          <li><strong>Likely the model Laura saw and remembered</strong> — platinum interior, wood-trim shelves, panoramic LEDs</li>
+          <li>Available in PrintShield Stainless or Black Ore (deep matte black exterior) if you want the dark look outside too</li>
+          <li>Preserva dual-cooling system maintains temperature stability comparable to Bosch</li>
+          <li>Reviewed.com lab tests: excellent cooling and food preservation</li>
+        </ul>
+        <ul class="cons">
+          <li><strong>Reliability is the soft spot</strong> — Whirlpool-owned. 3.9-star average across 1,270 Best Buy reviews. Ice maker is the most-complained-about feature.</li>
+          <li>Yale's 2026 data flagged some KitchenAid models at 25.5% service rates — verify the specific model before buying</li>
+          <li>22 cu. ft. is smaller than the LG LRYXC2606S (26 cu. ft.) for similar money</li>
+          <li>Freezer is small even for counter-depth</li>
+          <li>1-year warranty (10-year on sealed system only)</li>
+        </ul>
+        <div class="sources"><strong>Sources:</strong> KitchenAid product pages; Reviewed.com lab review; Best Buy verified-purchase reviews (1,270 reviews); Yale Appliance 2026 brand reliability data.</div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="callout">
+  <strong>Quick note on Fisher &amp; Paykel:</strong> Asked about specifically, but ultimately not a fit. F&amp;P's Series 7 counter-depth French door (RF170-series) is $3,049–$3,399 — competitive pricing — but it's only 32" wide and 16.9 cu. ft., which would force a cabinet redesign around the smaller footprint. F&amp;P also has thinner certified-tech presence in Denver than the major brands, and its interior is light/white (not the dark aesthetic). Strong brand, wrong configuration for this kitchen.
+</div>
+
+<div class="callout">
+  <strong>On compromising on the in-door ice maker:</strong> Don't. Yale's 2026 data is explicit that <em>"external ice and water dispensers create the most service calls"</em> in the entire refrigerator category. The mechanism is a known reliability weak point, and in-door ice also costs you 2–3 cu. ft. of usable freezer space. The reasoning (reliability + space) was correct — every brand offers internal-water-only versions, so there's no need to compromise.
+</div>
+
+<div class="callout accent">
+  <strong>Counter-depth tradeoff (asked about):</strong> Standard-depth 36" French doors typically run 25–27 cu. ft. vs counter-depth at 20.8–26.5 cu. ft. — roughly 15–20% less storage. With two adults and no kids, 22 cu. ft. is comfortable. The LG Counter-Depth MAX line (LRFLC2706S and LRYXC2606S) is specifically engineered to deliver near-standard-depth capacity in a counter-depth box, and largely closes the gap. <strong>Don't compromise on counter-depth for your situation</strong> — the visual and resale benefit outweighs the capacity loss.
+</div>
+
+<div class="callout">
+  <strong>The honest tradeoff among the four:</strong> If you want the rebate-stacking math, the Bosch B36CT80SNS works best paired with a Bosch dishwasher. If you want max capacity at lowest cost, the LG LRFLC2706S. If you want the dark interior and panoramic LED aesthetic with LG's reliability, the <strong>LG LRYXC2606S</strong> is the clearest answer. If you want the platinum interior with wood-trim shelving specifically, the KitchenAid KRFC236SPS is the only model that has it — but you're accepting reliability risk for the aesthetic.
+</div>
+
+<!-- ============== RANGE ============== -->
+<h2 class="section-title" id="range">3 · Induction range / cooktop + wall oven</h2>
+<p><em>Combined slide-in range AND separate cooktop + wall oven options requested.</em></p>
+
+<h3 class="sub-title">Option A: Slide-in induction range (combined)</h3>
+
+<table class="pick-table">
+  <thead>
+    <tr>
+      <th class="check-cell"></th>
+      <th style="width: 32%;">Model</th>
+      <th>Price</th>
+      <th>Why this pick</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="tier-1">
+      <td class="check-cell"><input type="checkbox" id="c-range1"></td>
+      <td>
+        <span class="tier-tag t1">Tier 1 · Recommended</span>
+        <div class="model-name">LG LSIL6336F</div>
+        <div class="model-meta">30" slide-in · 6.3 cu. ft. oven · 4 induction burners + warming zone · ProBake convection · Air Fry / Air Sous Vide · InstaView window · Wi-Fi</div>
+      </td>
+      <td>
+        <div class="price">$2,299<span class="price-was">$2,799 MSRP</span></div>
+        <div class="price-target">Target: $1,799–$1,999</div>
+      </td>
+      <td>
+        <ul class="pros">
+          <li>Yale data: <strong>most reliable induction range for 2026</strong> — 4.6% first-year service rate (category average is 8.7%)</li>
+          <li>4.3 kW UltraHeat element — boils a large pot in ~4 minutes per owner reports</li>
+          <li>Front-control physical knobs for cooktop (rare and a real usability win)</li>
+          <li>6.3 cu. ft. oven is the largest in this size class</li>
+        </ul>
+        <ul class="cons">
+          <li>Owners report the touch panel display is hard to read at night (no backlight)</li>
+          <li>Cooling fan runs noticeably during and after cooking</li>
+          <li>1-year base warranty (extends to 2 years if you connect to ThinQ app — do this)</li>
+        </ul>
+        <div class="sources"><strong>Sources:</strong> Yale Appliance 2026 reliability rankings; Consumer Reports lab ratings; verified Home Depot / Best Buy owner reviews.</div>
+      </td>
+    </tr>
+    <tr class="tier-2">
+      <td class="check-cell"><input type="checkbox" id="c-range2"></td>
+      <td>
+        <span class="tier-tag t2">Tier 2 · Alternate</span>
+        <div class="model-name">GE Profile PHS930YPFS</div>
+        <div class="model-meta">30" slide-in · 5.3 cu. ft. oven · 4 induction burners (2 syncable for griddle) · True convection · No-Preheat Air Fry · In-oven camera · Wi-Fi</div>
+      </td>
+      <td>
+        <div class="price">$2,899<span class="price-was">$3,399 MSRP</span></div>
+        <div class="price-target">Target: $2,299–$2,499</div>
+      </td>
+      <td>
+        <ul class="pros">
+          <li>Yale data: 9.2% service rate — higher than LG, but GE has the fastest factory service network in the US</li>
+          <li>Two syncable bridge burners for griddles or oval pans</li>
+          <li>True European convection plus precision oven modes</li>
+          <li>Reviewed.com flagged it as one of the most feature-packed ranges they've tested</li>
+        </ul>
+        <ul class="cons">
+          <li>2x more likely to need service in year one than the LG</li>
+          <li>Glide-touch cooktop controls (not knobs) — some owners find these less precise</li>
+          <li>Smaller oven (5.3 vs 6.3 cu. ft.)</li>
+        </ul>
+        <div class="sources"><strong>Sources:</strong> Yale Appliance reliability rankings; Reviewed.com lab tests; Consumer Reports.</div>
+      </td>
+    </tr>
+    <tr class="tier-3">
+      <td class="check-cell"><input type="checkbox" id="c-range3"></td>
+      <td>
+        <span class="tier-tag aesthetic">Aesthetic Pick</span>
+        <div class="model-name">Café CHS900P2MS1</div>
+        <div class="model-meta">30" slide-in · 5.7 cu. ft. oven · 5 burners with bridge zone · True European convection · Air Fry · Warming drawer · Smart probe · <strong>Customizable hardware</strong> (brushed brass / matte black / brushed black) · Wi-Fi via SmartHQ</div>
+      </td>
+      <td>
+        <div class="price">$4,139<span class="price-was">$4,599 MSRP</span></div>
+        <div class="price-target">Target: $3,299–$3,599</div>
+      </td>
+      <td>
+        <ul class="pros">
+          <li>Reviewed.com: <strong>"the best induction range we've tested"</strong> — aced their lab tests across boil time, simmer steadiness, and oven evenness</li>
+          <li>5 burners (vs 4 on most competitors) with bridge zone for griddles</li>
+          <li>Customizable knob and handle finishes — coordinate with cabinet hardware and fixture finish</li>
+          <li>GE's national factory service network (same as GE Profile)</li>
+          <li>Warming drawer underneath</li>
+          <li>4.4-star rating across 627 reviews on Café Appliances site</li>
+        </ul>
+        <ul class="cons">
+          <li>$1,200–$1,800 more than the LG at sale prices — premium for design and the extra burner</li>
+          <li>Yale data: middle-of-pack reliability for induction (between LG and Bosch)</li>
+          <li>Owners report buzzing on PowerBoost mode (highest setting)</li>
+          <li>Glass cooktop scratches more easily than the LG's per owner reports</li>
+          <li>Longer-than-average oven preheat per Reviewed</li>
+        </ul>
+        <div class="sources"><strong>Sources:</strong> Reviewed.com lab tests (top-ranked); Consumer Reports; Yale Appliance brand rankings; verified Home Depot owner reviews.</div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 class="sub-title">Option B: Separate induction cooktop + wall oven</h3>
+<p>If your designer suggests separating these (more counter flexibility, easier ergonomics for the oven), the path is a 30" Bosch 800 series cooktop ($1,499) plus a Bosch 800 series single wall oven ($2,499), or a Bosch Benchmark cooktop with FlexInduction ($1,899). This pushes total higher — typically $3,800–$4,400 for the pair vs $1,800–$2,500 for a slide-in. The flexibility is real but the cost premium is significant for a primary residence with potential rental upside.</p>
+
+<div class="callout">
+  <strong>Recommendation:</strong> Go slide-in (Option A) unless your designer strongly advocates separation. The slide-in saves $1,500+, simplifies cabinetry, simplifies install, and is the configuration most renters and buyers expect. The LG LSIL6336F is the right pick.
+</div>
+
+<!-- ============== DISHWASHER ============== -->
+<h2 class="section-title" id="dishwasher">4 · Dishwasher</h2>
+<p><em>Bosch — clarification on AutoAir vs CrystalDry below</em></p>
+
+<table class="pick-table">
+  <thead>
+    <tr>
+      <th class="check-cell"></th>
+      <th style="width: 32%;">Model</th>
+      <th>Price</th>
+      <th>Why this pick</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="tier-1">
+      <td class="check-cell"><input type="checkbox" id="c-dw1"></td>
+      <td>
+        <span class="tier-tag t1">Tier 1 · If door-pop is what you want</span>
+        <div class="model-name">Bosch 500 Series SHP65CP5N</div>
+        <div class="model-meta">24" · 44 dBA · 3rd rack · <strong>AutoAir (door pops open)</strong> · PrecisionWash · Wi-Fi via Home Connect</div>
+      </td>
+      <td>
+        <div class="price">$899<span class="price-was">$1,099 MSRP</span></div>
+        <div class="price-target">Target: $749–$799</div>
+      </td>
+      <td>
+        <ul class="pros">
+          <li><strong>This is the model with the door-pop dry feature you described.</strong> AutoAir cracks the door 1" at end of cycle to vent steam.</li>
+          <li>Same cleaning system, same 3rd rack, same EasyGlide racks as the 800</li>
+          <li>$200–$300 cheaper than the 800 series</li>
+          <li>Eligible for the Bosch Buy More Save More rebate</li>
+        </ul>
+        <ul class="cons">
+          <li>Plastics often need a quick towel-pat — AutoAir leaves them somewhat damp</li>
+          <li>Slightly louder at 44 dBA vs 42 dBA on the 800 (still very quiet)</li>
+        </ul>
+        <div class="sources"><strong>Sources:</strong> Bosch USA spec sheets; multiple comparison reviews (Prudent Reviews, Slager, Designer Appliances).</div>
+      </td>
+    </tr>
+    <tr class="tier-2">
+      <td class="check-cell"><input type="checkbox" id="c-dw2"></td>
+      <td>
+        <span class="tier-tag t2">Tier 2 · If plastic-drying matters more</span>
+        <div class="model-name">Bosch 800 Series SHX78CM5N</div>
+        <div class="model-meta">24" · 42 dBA · 3rd rack · <strong>CrystalDry (zeolite, no door pop)</strong> · PrecisionWash · Home Connect</div>
+      </td>
+      <td>
+        <div class="price">$1,199<span class="price-was">$1,499 MSRP</span></div>
+        <div class="price-target">Target: $999–$1,099</div>
+      </td>
+      <td>
+        <ul class="pros">
+          <li>CrystalDry: zeolite minerals absorb moisture and convert to heat — best plastic-drying on the market</li>
+          <li>2 dBA quieter than the 500</li>
+          <li>Top-tier reliability based on Yale's regional data</li>
+        </ul>
+        <ul class="cons">
+          <li><strong>Does not have the door-pop feature</strong> — door stays closed, drying happens via the zeolite chamber</li>
+          <li>$200–$300 premium over the 500</li>
+        </ul>
+        <div class="sources"><strong>Sources:</strong> Bosch USA; Reviewed.com (called the 800 series "some of the best dishwashers we've ever tested"); Consumer Reports.</div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- ============== MICROWAVE ============== -->
+<h2 class="section-title" id="microwave">5 · Microwave drawer</h2>
+<p><em>Important fact: every premium microwave drawer brand (Bosch, Wolf, Thermador, KitchenAid, Monogram) is manufactured by Sharp, often with brand-specific styling. Buying Sharp directly saves 20–40% for the same internals.</em></p>
+
+<table class="pick-table">
+  <thead>
+    <tr>
+      <th class="check-cell"></th>
+      <th style="width: 32%;">Model</th>
+      <th>Price</th>
+      <th>Why this pick</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="tier-1">
+      <td class="check-cell"><input type="checkbox" id="c-mw1"></td>
+      <td>
+        <span class="tier-tag t1">Tier 1 · Recommended</span>
+        <div class="model-name">Sharp SMD2470ASY</div>
+        <div class="model-meta">24" · 1.2 cu. ft. · 950W · Concealed control panel (45° tilt) · Easy Touch automatic open/close · Sensor cook</div>
+      </td>
+      <td>
+        <div class="price">$1,299<span class="price-was">$1,499 MSRP</span></div>
+        <div class="price-target">Target: $999–$1,099</div>
+      </td>
+      <td>
+        <ul class="pros">
+          <li>Yale data: microwave drawers are the most reliable cooking appliance — under 5% need service in year one</li>
+          <li>Identical internals to the Bosch HMD8451UC ($1,899) and the KitchenAid drawer ($1,799)</li>
+          <li>Concealed control panel keeps the front clean — fits your aesthetic</li>
+          <li>Auto-open/close, no handle needed</li>
+        </ul>
+        <ul class="cons">
+          <li>Some owners report uneven heating (no turntable — rotate by hand mid-cycle)</li>
+          <li>1-year warranty is shorter than Wolf (5-year limited)</li>
+        </ul>
+        <div class="sources"><strong>Sources:</strong> Yale Appliance microwave drawer reliability data; KitchenSanity comparison testing; Designer Appliances; Best Buy owner reviews.</div>
+      </td>
+    </tr>
+    <tr class="tier-2">
+      <td class="check-cell"><input type="checkbox" id="c-mw2"></td>
+      <td>
+        <span class="tier-tag t2">Tier 2 · If the wave-to-open / flush mount matters</span>
+        <div class="model-name">Sharp SMD2489ES</div>
+        <div class="model-meta">24" · 1.2 cu. ft. · 950W · <strong>Flush-mount</strong> + airflow venting · Easy Wave Open (motion sensor) · Wi-Fi · Alexa</div>
+      </td>
+      <td>
+        <div class="price">$1,697</div>
+        <div class="price-target">Target: $1,399–$1,499</div>
+      </td>
+      <td>
+        <ul class="pros">
+          <li>Built-in airflow venting allows true flush mount without a trim kit — cleaner cabinetry integration</li>
+          <li>Motion-sensor open is a quality-of-life upgrade (especially with messy hands)</li>
+          <li>Same 950W internals, sensor cook, etc.</li>
+        </ul>
+        <ul class="cons">
+          <li>$300–$400 premium over the SMD2470 — only worth it if your designer specifically wants flush integration</li>
+        </ul>
+        <div class="sources"><strong>Sources:</strong> Sharp USA spec sheets; Plesser's Appliances current pricing; Designer Appliances drawer roundup.</div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- ============== HOOD ============== -->
+<h2 class="section-title" id="hood">6 · Vent hood</h2>
+<p><em>Slim under-cabinet · 30" · efficient · ducted to exterior (per your renovation plan)</em></p>
+
+<div class="callout">
+  <strong>Important context:</strong> Induction cooktops actually generate <em>more</em> visible smoke at the start of cooking than gas because the pan heats much faster. A weak hood will not keep up. Owners of the LG LSIL6336F report that pairing it with a 600+ CFM hood is necessary. Plan for at least 400 CFM for everyday use, 600 CFM if you cook a lot of high-heat searing or stir-frying.
+</div>
+
+<table class="pick-table">
+  <thead>
+    <tr>
+      <th class="check-cell"></th>
+      <th style="width: 32%;">Model</th>
+      <th>Price</th>
+      <th>Why this pick</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="tier-1">
+      <td class="check-cell"><input type="checkbox" id="c-hood1"></td>
+      <td>
+        <span class="tier-tag t1">Tier 1 · Recommended</span>
+        <div class="model-name">Zephyr Tempest I AK7136BS (30")</div>
+        <div class="model-meta">30" under-cabinet · 600 CFM · 6 speeds · Pro-style baffle filters · LED · Auto-off delay · ~6.5" tall (slim)</div>
+      </td>
+      <td>
+        <div class="price">$849<span class="price-was">$1,099 MSRP</span></div>
+        <div class="price-target">Target: $649–$749</div>
+      </td>
+      <td>
+        <ul class="pros">
+          <li>Zephyr is owned by Broan-NuTone (the largest US ventilation manufacturer) — strong service network</li>
+          <li>Slim 6.5" profile preserves cabinet space above (matters with 8' ceilings)</li>
+          <li>600 CFM with quiet aerodynamic blade design — owners consistently rate it more pleasant than equivalent Broans</li>
+          <li>Stainless baffle filters are dishwasher-safe</li>
+        </ul>
+        <ul class="cons">
+          <li>At 600 CFM Denver may require makeup air per code — check with your GC; mitigated if you mostly run on lower speeds</li>
+        </ul>
+        <div class="sources"><strong>Sources:</strong> Friedman's Appliance roundup; Houzz forum comparison threads; Designer Appliances brand reliability comparison; Bogleheads owner reports.</div>
+      </td>
+    </tr>
+    <tr class="tier-2">
+      <td class="check-cell"><input type="checkbox" id="c-hood2"></td>
+      <td>
+        <span class="tier-tag t2">Tier 2 · Budget alternate</span>
+        <div class="model-name">Broan-NuTone EW4830SS (30")</div>
+        <div class="model-meta">30" under-cabinet · 390 CFM · 4 speeds · Stainless · ~10" tall</div>
+      </td>
+      <td>
+        <div class="price">$549<span class="price-was">$699 MSRP</span></div>
+        <div class="price-target">Target: $399–$449</div>
+      </td>
+      <td>
+        <ul class="pros">
+          <li>Same parent company as Zephyr — proven motors and ductwork</li>
+          <li>390 CFM is the sweet spot for code (no makeup air required)</li>
+          <li>$200+ cheaper than the Zephyr Tempest</li>
+        </ul>
+        <ul class="cons">
+          <li>Taller profile (~10") — less cabinet space above</li>
+          <li>Noisier per-CFM than the Zephyr at higher speeds</li>
+          <li>May not keep up with high-heat induction searing</li>
+        </ul>
+        <div class="sources"><strong>Sources:</strong> Broan-NuTone product spec; multiple appliance dealer reviews; Greenbuildingadvisor owner reports.</div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- ============== LAUNDRY ============== -->
+<h2 class="section-title" id="laundry">7 · Washer / dryer (optional this round)</h2>
+
+<div class="callout accent">
+  <strong>Direct answer to your old-dryer question:</strong> Old conventional electric dryers use roughly <strong>3–4 kWh per load</strong>. New conventional electric dryers use about <strong>2–2.5 kWh</strong>. New <strong>heat-pump</strong> dryers use about <strong>0.5–0.8 kWh</strong> — roughly 5–8x less than your existing dryer. So no, old and new dryers are not comparable on energy. If you keep the old top-load washer-and-dryer set as your "heavy duty" pair and add a new washer plus heat-pump dryer for daily use, you'll cut daily-use energy dramatically. The new washer alone idea (paired with the old dryer) loses most of the efficiency gain because the dryer is the bigger energy user in most pairs.
+</div>
+
+<div class="callout">
+  <strong>Critical finding on dryer venting (IRC code):</strong> You asked whether a new dryer can share the existing vent with the old one. The answer is <strong>no</strong> — International Residential Code Section M1502 explicitly states <em>"Dryer exhaust systems shall be independent of all other systems"</em> and shall not be connected to any other vent. Each vented dryer needs its own dedicated path to the exterior. Denver follows IRC, and an inspector will fail this on resale. So your three real options are: (1) install a second exterior vent for the new dryer, (2) make the new dryer ventless / heat-pump (no second vent needed), or (3) skip the new dryer entirely. <strong>Option 2 is almost certainly the right answer for your situation</strong> — keeps the existing vent for the old dryer, no new masonry penetration of your insulated brick walls, and far better daily-use efficiency.
+</div>
+
+<p><strong>Vented vs ventless tradeoffs at a glance:</strong></p>
+
+<table class="pick-table">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Vented (conventional electric)</th>
+      <th>Ventless (heat pump)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Energy per load</strong></td>
+      <td>2–2.5 kWh</td>
+      <td>0.5–0.8 kWh</td>
+    </tr>
+    <tr>
+      <td><strong>Cycle time</strong></td>
+      <td>45–60 min</td>
+      <td>75–120 min</td>
+    </tr>
+    <tr>
+      <td><strong>Heat / fabric care</strong></td>
+      <td>Hot air, can shrink delicates</td>
+      <td>Low temp, gentler</td>
+    </tr>
+    <tr>
+      <td><strong>Lint handling</strong></td>
+      <td>Vents lint outside</td>
+      <td>Captured in trap (clean every cycle)</td>
+    </tr>
+    <tr>
+      <td><strong>Install needs</strong></td>
+      <td>Vent through wall + makeup air</td>
+      <td>Drain + 120V outlet only</td>
+    </tr>
+    <tr>
+      <td><strong>Capacity</strong></td>
+      <td>Full size available (7+ cu. ft.)</td>
+      <td>4.0–5.3 cu. ft. typical</td>
+    </tr>
+    <tr>
+      <td><strong>Service</strong></td>
+      <td>Almost any laundry tech</td>
+      <td>Few techs trained on heat-pump systems</td>
+    </tr>
+    <tr>
+      <td><strong>Upfront cost</strong></td>
+      <td>Lower</td>
+      <td>$300–$700 more</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Bottom line on the laundry question:</strong> If you're going to add anything, a stacked or all-in-one washer + heat-pump dryer is the right move because (a) it stacks for space, (b) heat-pump dryers are ventless (no need for a second exterior vent), and (c) the daily-use efficiency gain is real and substantial. The compact heat-pump units from LG and Bosch are the most reliable based on Yale's data.</p>
+
+<h3 class="sub-title">Option A: Stacked or integrated washer + separate dryer</h3>
+
+<table class="pick-table">
+  <thead>
+    <tr>
+      <th class="check-cell"></th>
+      <th style="width: 32%;">Model</th>
+      <th>Price</th>
+      <th>Why this pick</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="tier-1">
+      <td class="check-cell"><input type="checkbox" id="c-laundry1"></td>
+      <td>
+        <span class="tier-tag t1">Tier 1 · Best value, full-size</span>
+        <div class="model-name">LG WashTower WKEX200HBA (electric, vented)</div>
+        <div class="model-meta">Single integrated unit · 4.5 cu. ft. washer + 7.4 cu. ft. dryer · Center-mounted controls · TurboWash 360 (under 30 min cycle) · Steam · 10-yr direct drive motor warranty</div>
+      </td>
+      <td>
+        <div class="price">$2,099<span class="price-was">$2,899 MSRP</span></div>
+        <div class="price-target">Target: $1,599–$1,799</div>
+      </td>
+      <td>
+        <ul class="pros">
+          <li>Yale: LG is the most reliable laundry brand for 2026 (4.1% service rate on washers)</li>
+          <li>Full-size capacity — no compromise vs separate units</li>
+          <li>Integrated single unit: simpler install, takes half the floor space</li>
+          <li>Built in Tennessee (less tariff exposure)</li>
+        </ul>
+        <ul class="cons">
+          <li><strong>This is the vented electric model — would require a second exterior vent</strong>, which means new masonry penetration. Not recommended for your situation unless you also remove the old dryer.</li>
+          <li>Conventional dryer: 2–2.5 kWh per load (better than old, not as good as heat pump)</li>
+          <li>Some owner reports of door-seal leaks at year 2+; LG covers these</li>
+        </ul>
+        <div class="sources"><strong>Sources:</strong> Yale Appliance reliability data; Consumer Reports washer/dryer pair ratings; Reviewed.com lab tests.</div>
+      </td>
+    </tr>
+    <tr class="tier-1">
+      <td class="check-cell"><input type="checkbox" id="c-laundry1b"></td>
+      <td>
+        <span class="tier-tag t1">Tier 1 · No new vent needed</span>
+        <div class="model-name">LG WashTower WKHC202HBA (heat pump, ventless)</div>
+        <div class="model-meta">Single integrated unit · 4.5 cu. ft. washer + 7.8 cu. ft. heat-pump dryer · Ventless · 120V · Center controls · TurboWash · Direct drive</div>
+      </td>
+      <td>
+        <div class="price">$2,999<span class="price-was">$3,499 MSRP</span></div>
+        <div class="price-target">Target: $2,199–$2,499</div>
+      </td>
+      <td>
+        <ul class="pros">
+          <li><strong>Same WashTower form factor, but heat-pump dryer instead of vented</strong> — no second exterior vent needed, keeps the old dryer's existing vent intact</li>
+          <li>0.5–0.8 kWh per dryer load vs 2–2.5 kWh on the vented version</li>
+          <li>Same LG reliability data, same warranty</li>
+          <li>Pairs with LG range and refrigerator for LG bundle rebate ($100–$300 off)</li>
+        </ul>
+        <ul class="cons">
+          <li>$400–$500 more upfront than the vented WashTower</li>
+          <li>Dry cycles run 90–120 min vs 50–60 min for the vented version</li>
+          <li>Fewer techs trained on heat-pump systems for repairs</li>
+        </ul>
+        <div class="sources"><strong>Sources:</strong> Yale Appliance reliability data; LG product specifications; Energy Star fact sheet on heat-pump dryers.</div>
+      </td>
+    </tr>
+    <tr class="tier-2">
+      <td class="check-cell"><input type="checkbox" id="c-laundry2"></td>
+      <td>
+        <span class="tier-tag t2">Tier 2 · Compact stacked alternate</span>
+        <div class="model-name">Bosch 500 Series WAW285H2UC + WTW87NH1UC</div>
+        <div class="model-meta">24" compact · 2.2 cu. ft. washer · 4.0 cu. ft. heat-pump dryer · No vent required · Stackable</div>
+      </td>
+      <td>
+        <div class="price">$2,799<span class="price-was">$3,398 MSRP</span></div>
+        <div class="price-target">Target: $2,399–$2,499</div>
+      </td>
+      <td>
+        <ul class="pros">
+          <li>Heat-pump dryer: ~0.5 kWh per load — the lowest energy use available</li>
+          <li>Self-cleaning condenser (no manual maintenance)</li>
+          <li>Yale data: Bosch is among the most reliable compact washers (5.2%)</li>
+          <li>Quiet operation, gentle on clothes (low-temp drying)</li>
+          <li>Eligible for Bosch Buy More Save More if pairing with Bosch dishwasher</li>
+        </ul>
+        <ul class="cons">
+          <li>Smaller capacity — bedding may need to be split into 2 loads</li>
+          <li>Dryer cycles run 75–120 min</li>
+          <li>Higher upfront price than the vented LG WashTower</li>
+        </ul>
+        <div class="sources"><strong>Sources:</strong> Yale Appliance compact washer/dryer reliability data; Energy Star heat-pump dryer fact sheet; CleanTechnica owner energy logging.</div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 class="sub-title">Option B: All-in-one combo (single machine washes AND dries)</h3>
+
+<div class="callout">
+  <strong>Why this is now worth seriously considering:</strong> The combo washer/dryer category was historically bad — small drums, marathon cycles, persistent reliability issues. The 2024–2025 generation with heat-pump tech changed that. Yale's 2026 data shows the LG WashCombo at <strong>4.1%</strong> first-year service rate (same tier as the LG WashTower) and the GE Profile UltraFast at 5.2%. Drums are now 4.8–5.3 cu. ft. — full-size territory. The remaining tradeoffs are real (longer cycles, must clean filter every load) but no longer disqualifying. Especially compelling for your situation because you're keeping the old top-load pair as the bulk-load workhorse, so the combo only needs to handle daily/light loads.
+</div>
+
+<table class="pick-table">
+  <thead>
+    <tr>
+      <th class="check-cell"></th>
+      <th style="width: 32%;">Model</th>
+      <th>Price</th>
+      <th>Why this pick</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="tier-1">
+      <td class="check-cell"><input type="checkbox" id="c-combo1"></td>
+      <td>
+        <span class="tier-tag t1">Tier 1 · Yale's top combo pick</span>
+        <div class="model-name">GE Profile UltraFast PFQ97HSPVDS</div>
+        <div class="model-meta">Single unit · 4.8 cu. ft. drum · Heat-pump ventless · 120V · Microban-coated drum · Adaptive SmartDispense · Steam · Sanitize · Wi-Fi via SmartHQ</div>
+      </td>
+      <td>
+        <div class="price">$2,599<span class="price-was">$2,999 MSRP</span></div>
+        <div class="price-target">Target: $1,999–$2,199</div>
+      </td>
+      <td>
+        <ul class="pros">
+          <li>Yale's <strong>top recommendation</strong> for combo units in 2026</li>
+          <li>5.2% first-year service rate (same tier as separate machines)</li>
+          <li>Reviewed.com top-rated combo washer-dryer (efficiency, performance, smart design)</li>
+          <li>GE's national factory service network — best service availability of the combos</li>
+          <li>Ventless heat-pump means no second vent needed; old dryer keeps existing vent</li>
+          <li>Auto-detergent dispenser holds 60+ loads of detergent</li>
+          <li>46.7" tall — fits standard laundry room, won't slide under a counter</li>
+        </ul>
+        <ul class="cons">
+          <li>Full wash+dry cycle: ~3 hours for 12 lb load (vs ~1.5 hrs for separate units)</li>
+          <li>Comforters and bedding handled poorly — that's why you keep the old top-loader</li>
+          <li>Must clean lint filter after every cycle (non-negotiable for heat-pump combos)</li>
+          <li>Requires HE detergent only — non-HE causes drainage issues</li>
+        </ul>
+        <div class="sources"><strong>Sources:</strong> Yale Appliance 2026 combo washer/dryer comparison; Reviewed.com lab tests; Consumer Reports.</div>
+      </td>
+    </tr>
+    <tr class="tier-2">
+      <td class="check-cell"><input type="checkbox" id="c-combo2"></td>
+      <td>
+        <span class="tier-tag t2">Tier 2 · Best for stain removal</span>
+        <div class="model-name">LG WashCombo WM6998HBA</div>
+        <div class="model-meta">Single unit · 5.0 cu. ft. drum · Inverter heat-pump · 120V · Steam · TurboWash · Allergen cycle · ezDispense · Wi-Fi via ThinQ · Black Steel or Graphite finish</div>
+      </td>
+      <td>
+        <div class="price">$2,799<span class="price-was">$3,199 MSRP</span></div>
+        <div class="price-target">Target: $2,199–$2,399</div>
+      </td>
+      <td>
+        <ul class="pros">
+          <li>Yale: 4.1% service rate — tied with LG WashTower as most reliable combo</li>
+          <li>Slightly larger drum (5.0 cu. ft.) than GE</li>
+          <li>Reviewed.com noted best stain removal of all combos tested, especially on heavy-duty</li>
+          <li>Shortest cycle times of the heat-pump combos</li>
+          <li>Less lint produced per cycle than GE per Yale's testing</li>
+          <li>Pairs with LG fridge and range for LG bundle rebate</li>
+        </ul>
+        <ul class="cons">
+          <li>~$200 more than the GE</li>
+          <li>Full cycle still 2.5–3 hours</li>
+          <li>Same lint-filter-every-cycle requirement</li>
+          <li>LG service network is regionally inconsistent (better in some markets than others)</li>
+        </ul>
+        <div class="sources"><strong>Sources:</strong> Yale Appliance 2026 combo comparison; Reviewed.com LG WashCombo review; LG product specifications.</div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="callout">
+  <strong>Combo vs. WashTower — when each wins:</strong> If you do mostly small-to-medium daily loads and value the "load it and walk away" workflow, the combo is genuinely superior. If you do larger loads or back-to-back loads frequently, the WashTower (especially the heat-pump WKHC202HBA) is faster overall because you can wash and dry simultaneously. Since you're keeping the old top-loader pair as backup for big stuff, either approach works for your situation. The combo saves about 12 inches of vertical space (no stacked dryer above the controls) and is the absolute simplest install.
+</div>
+
+<div class="callout good">
+  <strong>If keeping the old washer/dryer alongside:</strong> Plan dimensions accordingly. The LG WashTower is 27" wide × 74.4" tall. The Bosch compact is 24" wide × 67.6" stacked. The GE Profile combo is 28" wide × 46.7" tall (much shorter — cabinet space above is possible). Either works alongside the old top-loader pair if your laundry room is wide enough for both setups side by side.
+</div>
+
+<h3 class="sub-title">On gas vs electric for the dryer</h3>
+<p>You asked for both. Honest answer: <strong>don't go gas for the new dryer.</strong> Reasons: (1) the LG WashTower's gas variant (WKGX201HBA) costs $200 more and saves you only $30–60 per year in utility costs at Denver gas/electric rates; (2) gas dryers require a gas line in the laundry room (does yours have one?); (3) if you want maximum efficiency, the heat-pump electric dryer is more efficient than any gas dryer — gas only beats conventional electric, not heat-pump electric. The decision tree collapses to electric.</p>
+
+<!-- ============== PACKAGES ============== -->
+<h2 class="section-title" id="packages">8 · Package totals</h2>
+
+<h3 class="sub-title">Package A: All Tier 1 (kitchen only)</h3>
+<div class="budget">
+  <div class="budget-row"><span class="budget-label">Refrigerator — Bosch B36CT80SNS</span><span class="budget-value">$2,999</span></div>
+  <div class="budget-row"><span class="budget-label">Range — LG LSIL6336F</span><span class="budget-value">$1,899</span></div>
+  <div class="budget-row"><span class="budget-label">Dishwasher — Bosch SHP65CP5N (500 series, AutoAir)</span><span class="budget-value">$799</span></div>
+  <div class="budget-row"><span class="budget-label">Microwave — Sharp SMD2470ASY</span><span class="budget-value">$1,049</span></div>
+  <div class="budget-row"><span class="budget-label">Hood — Zephyr Tempest I 30"</span><span class="budget-value">$699</span></div>
+  <div class="budget-row"><span class="budget-label">Bosch Buy More Save More rebate (fridge + dishwasher = 2 categories)</span><span class="budget-value">−$300</span></div>
+  <div class="budget-row total"><span class="budget-label">Kitchen subtotal (Tier 1)</span><span class="budget-value">$7,145</span></div>
+  <div class="budget-row"><span class="budget-label">Add: LG WashTower WKEX200HBA (Tier 1 laundry)</span><span class="budget-value">$1,699</span></div>
+  <div class="budget-row total"><span class="budget-label">Total with laundry</span><span class="budget-value">$8,844</span></div>
+</div>
+
+<h3 class="sub-title">Package B: Tier 2 / value-optimized</h3>
+<div class="budget">
+  <div class="budget-row"><span class="budget-label">Refrigerator — LG LRFLC2706S</span><span class="budget-value">$2,399</span></div>
+  <div class="budget-row"><span class="budget-label">Range — LG LSIL6336F</span><span class="budget-value">$1,899</span></div>
+  <div class="budget-row"><span class="budget-label">Dishwasher — Bosch SHP65CP5N (500 series, AutoAir)</span><span class="budget-value">$799</span></div>
+  <div class="budget-row"><span class="budget-label">Microwave — Sharp SMD2470ASY</span><span class="budget-value">$1,049</span></div>
+  <div class="budget-row"><span class="budget-label">Hood — Broan EW4830SS</span><span class="budget-value">$449</span></div>
+  <div class="budget-row total"><span class="budget-label">Kitchen subtotal (Tier 2)</span><span class="budget-value">$6,595</span></div>
+  <div class="budget-row"><span class="budget-label">Add: LG WashTower WKEX200HBA</span><span class="budget-value">$1,699</span></div>
+  <div class="budget-row total"><span class="budget-label">Total with laundry</span><span class="budget-value">$8,294</span></div>
+</div>
+
+<h3 class="sub-title">Package C: All-Bosch kitchen for max rebate stacking</h3>
+<div class="budget">
+  <div class="budget-row"><span class="budget-label">Refrigerator — Bosch B36CT80SNS</span><span class="budget-value">$2,999</span></div>
+  <div class="budget-row"><span class="budget-label">Range — Bosch HII8047U (induction slide-in, 800 series)</span><span class="budget-value">$3,199</span></div>
+  <div class="budget-row"><span class="budget-label">Dishwasher — Bosch SHP65CP5N</span><span class="budget-value">$799</span></div>
+  <div class="budget-row"><span class="budget-label">Microwave — Sharp SMD2470ASY (Bosch's drawer is the same internals at $700+ premium)</span><span class="budget-value">$1,049</span></div>
+  <div class="budget-row"><span class="budget-label">Hood — Bosch HUI56551UC (500 series under-cabinet)</span><span class="budget-value">$699</span></div>
+  <div class="budget-row"><span class="budget-label">Bosch Buy More Save More (4 categories: fridge, range, dishwasher, hood)</span><span class="budget-value">−$1,400</span></div>
+  <div class="budget-row total"><span class="budget-label">Kitchen subtotal (all-Bosch)</span><span class="budget-value">$7,345</span></div>
+</div>
+
+<div class="callout">
+  <strong>Why I don't recommend Package C as the lead option:</strong> The Bosch HII8047U range is reliable but Yale's data shows Bosch is not the top induction range brand — LG and GE Profile both outperform it on first-year service rates. The rebate makes the math work, but you're paying for brand consistency rather than best-in-class on the most-used appliance. Package A delivers better tools for similar money, and Package B saves $1,700 by going LG fridge + Broan hood.
+</div>
+
+<h3 class="sub-title">Package D: All-LG ecosystem (new option)</h3>
+<div class="budget">
+  <div class="budget-row"><span class="budget-label">Refrigerator — LG LRYXC2706S (dark interior, panoramic LED, 26 cu. ft.)</span><span class="budget-value">$2,999</span></div>
+  <div class="budget-row"><span class="budget-label">Range — LG LSIL6336F</span><span class="budget-value">$1,899</span></div>
+  <div class="budget-row"><span class="budget-label">Dishwasher — Bosch SHP65CP5N (LG dishwashers are not best-in-class — Bosch wins here)</span><span class="budget-value">$799</span></div>
+  <div class="budget-row"><span class="budget-label">Microwave — Sharp SMD2470ASY</span><span class="budget-value">$1,049</span></div>
+  <div class="budget-row"><span class="budget-label">Hood — Zephyr Tempest I 30"</span><span class="budget-value">$699</span></div>
+  <div class="budget-row"><span class="budget-label">LG Buy More Save More (3+ LG appliances: fridge, range, laundry)</span><span class="budget-value">−$300</span></div>
+  <div class="budget-row total"><span class="budget-label">Kitchen subtotal (LG ecosystem + Bosch dishwasher)</span><span class="budget-value">$7,145</span></div>
+  <div class="budget-row"><span class="budget-label">Add: LG WashTower WKHC202HBA (heat pump, ventless)</span><span class="budget-value">$2,299</span></div>
+  <div class="budget-row total"><span class="budget-label">Total with ventless laundry (no second vent needed)</span><span class="budget-value">$9,444</span></div>
+</div>
+
+<div class="callout good">
+  <strong>Why Package D may be the best overall fit:</strong> Gives Laura the dark/backlit interior aesthetic she's drawn to, keeps best-in-class on every appliance (LG for fridge/range/laundry, Bosch for dishwasher, Sharp for microwave, Zephyr for hood), solves the dryer-vent code problem with the heat-pump WashTower, and stacks the LG bundle rebate. Lands at $9,444 with washer/dryer included — under budget. The only downsides vs. Package A: $300 more total, slight reliability dip on the fridge vs. Bosch's dual-evap, longer dryer cycles.
+</div>
+
+<h3 class="sub-title">Package E: KitchenAid aesthetic-led (new option)</h3>
+<div class="budget">
+  <div class="budget-row"><span class="budget-label">Refrigerator — KitchenAid KRFC236SPS (platinum interior, wood-trim shelves)</span><span class="budget-value">$2,899</span></div>
+  <div class="budget-row"><span class="budget-label">Range — Café CHS900P2MS1 (customizable hardware, top-rated induction)</span><span class="budget-value">$3,499</span></div>
+  <div class="budget-row"><span class="budget-label">Dishwasher — Bosch SHP65CP5N</span><span class="budget-value">$799</span></div>
+  <div class="budget-row"><span class="budget-label">Microwave — Sharp SMD2489ES (flush-mount premium)</span><span class="budget-value">$1,499</span></div>
+  <div class="budget-row"><span class="budget-label">Hood — Zephyr Tempest I 30"</span><span class="budget-value">$699</span></div>
+  <div class="budget-row total"><span class="budget-label">Kitchen subtotal (aesthetic-led)</span><span class="budget-value">$9,395</span></div>
+  <div class="budget-row"><span class="budget-label">Add: GE Profile UltraFast combo (matches Café/GE service network)</span><span class="budget-value">$2,099</span></div>
+  <div class="budget-row total"><span class="budget-label">Total with all-in-one combo</span><span class="budget-value">$11,494</span></div>
+</div>
+
+<div class="callout">
+  <strong>Why Package E is interesting but goes over budget:</strong> Best-looking package by a mile — coordinated finishes between KitchenAid (PrintShield), Café (customizable hardware), and the rest. Café is Reviewed.com's top-rated induction range, and the combination with KitchenAid's platinum-interior fridge and wood-trim shelves gives the kitchen a distinctly designed feel. <strong>$1,500 over budget with laundry, $400 under without it.</strong> The reliability concern on the KitchenAid fridge is the soft spot. Worth flagging to your designer if aesthetic coordination is a priority.
+</div>
+
+<h3 class="sub-title">Quick package comparison</h3>
+<table class="pick-table">
+  <thead>
+    <tr>
+      <th>Package</th>
+      <th>Kitchen only</th>
+      <th>With laundry</th>
+      <th>Best for</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td><strong>A · Tier 1 mix</strong></td><td>$7,145</td><td>$8,844</td><td>Strongest reliability + price balance</td></tr>
+    <tr><td><strong>B · Tier 2 value</strong></td><td>$6,595</td><td>$8,294</td><td>Lowest cost without sacrificing core picks</td></tr>
+    <tr><td><strong>C · All-Bosch</strong></td><td>$7,345</td><td>—</td><td>Maximum rebate stacking, brand consistency</td></tr>
+    <tr><td><strong>D · LG ecosystem</strong></td><td>$7,145</td><td>$9,444</td><td>Dark interior aesthetic + ventless laundry, code-compliant</td></tr>
+    <tr><td><strong>E · Aesthetic-led</strong></td><td>$9,395</td><td>$11,494</td><td>Best coordinated visual design (over budget with laundry)</td></tr>
+  </tbody>
+</table>
+
+<!-- ============== METHODOLOGY ============== -->
+<h2 class="section-title" id="methodology">9 · Methodology &amp; sources</h2>
+
+<p><strong>Reliability data.</strong> The single most useful source for this research is Yale Appliance's 2026 reliability rankings, derived from 33,000+ actual service calls completed by their Boston-area service team. This is real-world failure data, not survey responses. Their CEO Steve Sheinkopf publishes detailed methodology and updates the rankings annually. Where Yale and Consumer Reports agree, my confidence is highest. Where they disagree (e.g., LG French-doors), I noted both views.</p>
+
+<p><strong>Lab performance data.</strong> Consumer Reports' lab tests (boil time, simmer steadiness, baking evenness, temperature uniformity) and Reviewed.com's lab tests are the reference points for "does it actually work well." Both publications maintain editorial independence from manufacturers.</p>
+
+<p><strong>Owner experience.</strong> Verified-purchase reviews from Best Buy and Home Depot, plus Houzz, Bogleheads, and Greenbuildingadvisor forum threads — used selectively, weighted toward owners who have had products 1+ years and report specific failure modes or longevity outcomes.</p>
+
+<p><strong>Reddit, transparently:</strong> Reddit threads (r/appliances, r/AskCulinary, r/HomeImprovement) were not included in this research. The web search tool used here returns curated results that don't surface Reddit content reliably. Steve Sheinkopf at Yale Appliance is frequently cited as the gold-standard source on appliance reliability across Reddit threads, which validates the primary source used here, but you're not getting the unfiltered "I've owned this for 3 years and here's what broke" Reddit perspective in this document. If you want to cross-check before buying, search the specific model number on Reddit for the recent owner experience.</p>
+
+<p><strong>Pricing.</strong> Current MSRP from manufacturer sites; current retail from AJ Madison, Best Buy, Lowe's, Plesser's, and Gerhard's; "target prices" derived from observed sale-price patterns over the past 12 months on these retailers, plus active rebate programs.</p>
+
+<p><strong>What I didn't include and why.</strong> Speed Queen washer/dryer (excellent reliability but no truly stackable option that meets your needs); Miele compact units (highest-end reliability but $1,500+ more than Bosch for similar capability, plus 15–20% price increase announced for 2026 due to tariffs); Wolf / Sub-Zero / Thermador / SKS (luxury tier, not requested); Samsung refrigerators and laundry (Yale data: weakest service infrastructure of major brands, repeated owner reports of slow service); Fisher &amp; Paykel 36" French-door (they only make a 32" counter-depth that would force a cabinet redesign, and Denver service availability is thin).</p>
+
+<div class="notes">
+  <h3>Reminders for the actual buying day</h3>
+  <p><strong>1.</strong> Confirm rough openings with cabinet plan one final time before purchase — fridge and range cutout dimensions especially. Returns are expensive on appliances. <strong>2.</strong> Schedule delivery for after construction is substantially complete. Ask the retailer to hold-for-delivery (Lowe's and AJ Madison both do this routinely; Home Depot is hit-or-miss). <strong>3.</strong> Register every appliance for warranty within 30 days. The Bosch and LG warranties require registration. <strong>4.</strong> Save all receipts and rebate forms in one folder. The Bosch rebate is mail-in and has a deadline. <strong>5.</strong> Don't accept the dealer-installed protection plan upsell. It rarely pays out and AppliancesConnection / extended warranties through credit cards are usually better value if you want one.</p>
+</div>
+
+</div>
+</body>
+</html>
